@@ -1,0 +1,39 @@
+#Get git information
+parse_git_branch () {
+        git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)# (git::\1)#'
+}
+
+#Get svn information
+##Get svn url
+parse_svn_url() {
+        svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+}
+
+##Get svn repository root
+parse_svn_repository_root() {
+        svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
+}
+##Get svn revision 
+parse_svn_current_revision() {
+        svn info 2>/dev/null | sed -ne 's#^Revision: ##p'
+}
+
+##Get svn branch
+parse_svn_branch() {
+	svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed 's#\(.*\)\/branches\/\(\w*\)\/*.*#\2#'
+}
+
+##Parse everything and return the svn general info
+parse_svn_branch_revision() {
+	parse_svn_url | sed -e 's#^'"$(parse_svn_branch)"'##g' | awk -F / '{print $1 "/" $2 }' | awk '{print " (svn::_@" $1 ")" } ' | sed -e 's#_@#'"$(parse_svn_branch)"':#g'	
+}
+
+
+scm_display() {
+	parse_git_branch
+	parse_svn_branch
+}
+
+export PS1="$LIGHT_GREEN\$(scm_display)\n$DEFAULT_COLOR[\u@\h \W]$ "
+
+#svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed 's#\(.*\)\/branches\/\(.*\)\/.*#\2#'
