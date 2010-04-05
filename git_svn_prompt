@@ -32,7 +32,7 @@ parse_svn_branch_revision() {
 
 
 scm_display() {
-	parse_svn_branch && parse_git_branch && echo '-'
+	parse_svn_branch && parse_git_branch && echo ''
 }
 
 #export PS1="$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR$DEFAULT_COLOR[\u@\h \W]$ "
