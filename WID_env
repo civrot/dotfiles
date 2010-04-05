@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ~/.env/git_svn_prompt
+
 # ANT Home Dir
 export ANT_HOME=/opt/apache-ant-1.7.1
                
@@ -20,7 +22,8 @@ export SERVICEDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/serviceDeploy.sh
 export EJBDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/ejbdeploy.sh
 export WSDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/wsdeploy.sh
 
-export PS1="\e[1;35mWID\n\e[0;37m[\u@\h \W]\$ "
+export PS1="\e[1;35mWID$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR[\u@\h \W]\$ "
+#export PS1="\e[1;35mWID\n\e[0;37m[\u@\h \W]\$ "
 
 alias ws='. ~/.env/workspace_select.sh'
 alias h='cd $WID_WORKSPACE_DIR'
@@ -33,3 +36,4 @@ alias stg='cd $WID_WORKSPACE_DIR && svn status && cd -'
 alias st='svn status'
 alias ci='svn ci'
  
+#export PS1="$LIGHT_PURPLE\$(parse_git_branch)$DEFAULT_COLOR[$LIGHT_CYAN\u@\h$BLUE $YELLOW\w$LIGHT_PURPLE\$(parse_svn_branch_revision)$DEFAULT_COLOR ] "
