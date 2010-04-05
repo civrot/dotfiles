@@ -22,7 +22,7 @@ parse_svn_current_revision() {
 
 ##Get svn branch
 parse_svn_branch() {
-	svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed 's#\(.*\)\/branches\/\(\w*\)\/*.*#(svn:\2:'"$(parse_svn_current_revision)"')#'
+	svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed 's#\(.*\)\/trunk#(svn:trunk:'"$(parse_svn_current_revision)"')#' | sed 's#\(.*\)\/branches\/\(\w*\)\/*.*#(svn:\2:'"$(parse_svn_current_revision)"')#'
 }
 
 ##Parse everything and return the svn general info
