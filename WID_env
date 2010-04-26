@@ -22,6 +22,8 @@ export SERVICEDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/serviceDeploy.sh
 export EJBDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/ejbdeploy.sh
 export WSDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/wsdeploy.sh
 
+export WID_WORKSPACES=~/code/WID
+
 export PS1="\e[1;35mWID$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
 #export PS1="\e[1;35mWID\n\e[0;37m[\u@\h \W]\$ "
 
@@ -37,3 +39,5 @@ alias st='svn status'
 alias ci='svn ci'
  
 #export PS1="$LIGHT_PURPLE\$(parse_git_branch)$DEFAULT_COLOR[$LIGHT_CYAN\u@\h$BLUE $YELLOW\w$LIGHT_PURPLE\$(parse_svn_branch_revision)$DEFAULT_COLOR ] "
+
+cd $WID_WORKSPACES
