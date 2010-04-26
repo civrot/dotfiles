@@ -22,10 +22,10 @@ export SERVICEDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/serviceDeploy.sh
 export EJBDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/ejbdeploy.sh
 export WSDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/wsdeploy.sh
 
-export PS1="\e[1;35m$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
+export PS1="\e[1;35mWID$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
 #export PS1="\e[1;35mWID\n\e[0;37m[\u@\h \W]\$ "
 
-alias ws='. ~/.env/workspace_select.sh'
+alias sw='. ~/.env/workspace_select.sh'
 alias h='cd $WID_WORKSPACE_DIR'
 alias s='cd $WID_WORKSPACE_DIR/src'
 alias cw='cd $WID_WORKSPACE_DIR && ./createWorkSpace.sh && cd -'
