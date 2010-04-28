@@ -23,11 +23,8 @@ do
       #export PS1="\e[1;35mWID - $WID_WORKSPACE_NAME\e[0;37m$(__git_ps1 " (%s)")\n[\u@\h \W]\$ "
       export PS1="\e[1;35m$WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
 
-	echo  $WID_WORKSPACE_DIR
-
       cd $WID_WORKSPACE_DIR 
-
-      #./createWorkspace.sh
+      ./createWorkSpace.sh
       break
     ;;
   esac
