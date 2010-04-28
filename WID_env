@@ -1,6 +1,28 @@
 #!/bin/bash
 
-. ~/.env/git_svn_prompt
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# CONFIG
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+#The dir where this script lives
+export WORKSPACE_TOOLS=~/.workspace_tools
+
+export WID_WORKSPACES=~/code/WID
+
+export SVN_REPO=http://pgesvn/svn/WebSphereProgram/workspace/developer_workspaces/wid_projects
+
+export PRETTY_PROMPT=true;
+
+
+###############################################################################
+#      There should be no need to change anything below this line.
+###############################################################################
+
+
+
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# ENVIROMENTAL VARs
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
 
 # ANT Home Dir
 export ANT_HOME=/opt/apache-ant-1.7.1
@@ -22,12 +44,13 @@ export SERVICEDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/serviceDeploy.sh
 export EJBDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/ejbdeploy.sh
 export WSDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/wsdeploy.sh
 
-export WID_WORKSPACES=~/code/WID
 
-export PS1="\e[1;35mWID$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
-#export PS1="\e[1;35mWID\n\e[0;37m[\u@\h \W]\$ "
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# Aliases
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
 
-alias sw='. ~/.env/workspace_select.sh'
+alias sw='select_workspace'
+alias co='checkout_workspace'
 alias h='cd $WID_WORKSPACE_DIR'
 alias s='cd $WID_WORKSPACE_DIR/src'
 alias cw='cd $WID_WORKSPACE_DIR && ./createWorkSpace.sh && cd -'
@@ -38,6 +61,77 @@ alias stg='cd $WID_WORKSPACE_DIR && svn status && cd -'
 alias st='svn status'
 alias ci='svn ci'
  
-#export PS1="$LIGHT_PURPLE\$(parse_git_branch)$DEFAULT_COLOR[$LIGHT_CYAN\u@\h$BLUE $YELLOW\w$LIGHT_PURPLE\$(parse_svn_branch_revision)$DEFAULT_COLOR ] "
 
+if ($PRETTY_PROMPT) then
+	#source the prompt script to show rev in your prompt
+	. $WORKSPACE_TOOLS/git_svn_prompt
+	#export PS1="\e[1;35mWID$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
+	export PS1=$WID_PROMPT
+fi
+
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# Functions
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+# checkout_workspace
+# Lists the workspace in the SVN repo. Checkoutst the workspace selected, calls createWorkspace, and then CDs into it
+checkout_workspace() {
+	PS3="Choose workspace (0 to cancel) :"
+
+	select workspace in `svn ls $SVN_REPO`;
+	do
+	  case $workspace in
+		"")
+			break
+		;;
+	    	*)
+	     	 	echo "Checking out $workspace"
+	     	 	cd $WID_WORKSPACES
+	      		svn co $SVN_REPO/$workspace/trunk $workspace
+
+	      		export WID_WORKSPACE_NAME=$workspace
+	      		echo "Switching to $WID_WORKSPACE_NAME"
+	      		export WID_WORKSPACE_DIR="$WID_WORKSPACES/$workspace"
+	      
+	      		if ($PRETTY_PROMPT) then 
+				export PS1="\e[1;35m$WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
+			fi
+
+	      		cd $WID_WORKSPACE_DIR 
+	      		./createWorkSpace.sh
+	      		break
+		;;
+	  esac
+	done
+}
+
+# select_workspace
+# Lists the local workspace, and sets the currenrt workspace to the one selected
+select_workspace() {
+	PS3="Choose workspace (0 to cancel) :"
+
+	select workspace in `ls $WID_WORKSPACES`;
+	do
+	  case $workspace in
+	    "")
+	      break
+	  ;;
+	    *)
+		export WID_WORKSPACE_NAME=$workspace
+	      	echo "Switching to $WID_WORKSPACE_NAME"
+	      	export WID_WORKSPACE_DIR="$WID_WORKSPACES/$workspace"
+	      	
+	      	if ($PRETTY_PROMPT) then 
+			export PS1="\e[1;35m$WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "  
+		fi
+
+      		cd $WID_WORKSPACE_DIR
+	      	break
+	   ;;
+	  esac
+	done
+}
+
+#Finally 
 cd $WID_WORKSPACES
+

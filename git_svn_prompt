@@ -1,4 +1,6 @@
-. ~/.env/bash_colors
+#!/bin/bash
+
+. $WORKSPACE_TOOLS/bash_colors
 
 #Get git information
 parse_git_branch () {
