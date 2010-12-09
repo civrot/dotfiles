@@ -1,0 +1,190 @@
+#!/bin/bash
+
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# CONFIG
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+#The dir where this script lives
+export WORKSPACE_TOOLS=~/.workspace_tools
+
+# Your workspaces dirs
+WID6_WORKSPACES=~/code/WID
+WID7_WORKSPACES=~/code/WID7
+
+#um, yeah....
+SVN6_REPO=http://pgesvn/svn/WebSphereProgram/workspace/developer_workspaces/wid_projects
+SVN7_REPO=http://pgesvn/svn/WebSphereProgram/migration/workspaces/wid_workspaces/
+
+#If you want your prompt to show what workspace, branch, and rev you are currently looking at set this to true
+export PRETTY_PROMPT=true
+
+#The commands for creating/building workspaces. For cygwin these will probably need to be .bat
+export CREATE_WORKSPACE_CMD=createWorkSpace.sh
+export BUILD_WORKSPACE_CMD=buildWorkSpace.sh
+
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# ENVIROMENTAL VARs
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+
+
+# ANT Home Dir
+export ANT_HOME=/opt/apache-ant-1.7.1
+               
+# Set JAVA_HOME to JDK path
+JAVA_HOME6=/IBM/WID602/runtimes/bi_v6/java
+JAVA_HOME7=/IBM/WID7_WTE/runtimes/bi_v7/java
+
+# Set the locations for the IBM installation
+STUDIO_DIR6=/IBM/WID602
+STUDIO_DIR7=/IBM/WID7
+
+# Set the the location of the Runtime dirs
+WID_LIB_DIR6=/IBM/WID602/runtimes/bi_v6/lib/ext
+WID_LIB_DIR7=/IBM/WID7_WTE/runtimes/bi_v7/lib/ext
+# Set the location of the build dir
+BUILD_DIR=/sandbox/BuildScriptbuild
+
+# Set the locations for the IBM deploy batch scripts
+#export SERVICEDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/serviceDeploy.sh
+#export EJBDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/ejbdeploy.sh
+#export WSDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/wsdeploy.sh
+	
+
+###############################################################################
+#      There should be no need to change anything below this line. Well configuration wise, at least.
+###############################################################################
+
+#Determine which env we are wokring with
+if [ $1 = "7" ] ; then
+  export WID_WORKSPACES=$WID7_WORKSPACES
+  export SVN_REPO=$SVN7_REPO
+  export JAVA_HOME=$JAVA_HOME7
+  export STUDIO_DIR=$STUDIO_DIR7
+  export WID_LIB_DIR=$WID_LIB_DIR7
+  export CREATE_WORKSPACE_CMD=createWorkSpace7.sh
+
+  alias srvstart='/IBM/WID7_WTE/runtimes/bi_v7/bin/startServer.sh server1'
+  alias srvstop='/IBM/WID7_WTE/runtimes/bi_v7/bin/stopServer.sh server1'
+
+  export PROMPT="WID7"
+else 
+  export WID_WORKSPACES=$WID6_WORKSPACES
+  export SVN_REPO=$SVN6_REPO
+  export JAVA_HOME=$JAVA_HOME6
+  export STUDIO_DIR=$STUDIO_DIR6
+  export WID_LIB_DIR=$WID_LIB_DIR6
+
+  alias srvstart='/IBM/WID602/runtimes/bi_v6/bin/startServer.sh server1'
+  alias srvstop='/IBM/WID602/runtimes/bi_v6/bin/stopServer.sh server1'
+
+
+  export PROMPT="WID6"
+fi
+
+echo -e "\033[01;31m~-==-~-==-~-==-~-==-~-==-~-==-~\033[0;00m"
+echo "Switched to $PROMPT Environment" 	
+
+echo "WID_WORKSPACES = $WID_WORKSPACES"
+echo "SVN_REP = $SVN_REPO"
+echo "JAVA_HOME=$JAVA_HOME"
+echo "STUDIO_DIR=$STUDIO_DIR"
+echo "WID_LIB_DIR=$WID_LIB_DIR"
+echo -e "\033[01;31m~-==-~-==-~-==-~-==-~-==-~-==-~\033[0;00m"
+	
+export WID_WORKSPACE_NAME=''
+export WID_WORKSPACE_DIR="$WID_WORKSPACES"
+
+
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# Aliases
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+alias sw='select_workspace'
+alias h='cd $WID_WORKSPACE_DIR'
+alias s='cd $WID_WORKSPACE_DIR/src'
+alias t='cd $WID_WORKSPACE_DIR/unittests'
+alias cw='cd $WID_WORKSPACE_DIR && ./$CREATE_WORKSPACE_CMD && cd -'
+alias bw='cd $WID_WORKSPACE_DIR && ./$BUILD_WORKSPACE_CMD && cd -'
+alias clean='cd $WID_WORKSPACE_DIR && find . -name *.class -exec rm {} \; && cd -'
+
+#SVN Aliases
+alias co='checkout_workspace'
+alias ci='svn ci'
+alias stg='cd $WID_WORKSPACE_DIR && svn status && cd -'
+alias st='svn status'
+alias up='cd $WID_WORKSPACE_DIR && svn up && cd -'
+ 
+
+if ($PRETTY_PROMPT) then
+	#source the prompt script to show rev in your prompt
+	. $WORKSPACE_TOOLS/git_svn_prompt
+	export PS1="\e[1;35m$PROMPT$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
+fi
+
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+# Functions
+#~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+# checkout_workspace
+# Lists the workspace in the SVN repo. Checkoutst the workspace selected, calls createWorkspace, and then CDs into it
+checkout_workspace() {
+	PS3="Choose workspace (0 to cancel) :"
+
+	select workspace in `svn ls $SVN_REPO`;
+	do
+	  case $workspace in
+		"")
+			break
+		;;
+	    	*)
+	     	 	echo "Checking out $workspace"
+	     	 	cd $WID_WORKSPACES
+	      		svn co $SVN_REPO/$workspace/trunk $workspace
+
+	      		export WID_WORKSPACE_NAME=$workspace
+	      		echo "Switching to $WID_WORKSPACE_NAME"
+	      		export WID_WORKSPACE_DIR="$WID_WORKSPACES/$workspace"
+	      
+	      		if ($PRETTY_PROMPT) then 
+				export PS1="\e[1;35m$PROMPT - $WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
+			fi
+
+	      		cd $WID_WORKSPACE_DIR 
+	      		./$CREATE_WORKSPACE_CMD
+	      		break
+		;;
+	  esac
+	done
+}
+
+# select_workspace
+# Lists the local workspace, and sets the currenrt workspace to the one selected
+select_workspace() {
+	PS3="Choose workspace (0 to cancel) :"
+
+	select workspace in `ls $WID_WORKSPACES`;
+	do
+	  case $workspace in
+	    "")
+	      break
+	  ;;
+	    *)
+		export WID_WORKSPACE_NAME=$workspace
+	      	echo "Switching to $WID_WORKSPACE_NAME"
+	      	export WID_WORKSPACE_DIR="$WID_WORKSPACES/$workspace"
+	      	
+	      	if ($PRETTY_PROMPT) then 
+			export PS1="\e[1;35m$PROMPT - $WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "  
+		fi
+
+      		cd $WID_WORKSPACE_DIR
+	      	break
+	   ;;
+	  esac
+	done
+}
+
+#Finally 
+cd $WID_WORKSPACES
+
