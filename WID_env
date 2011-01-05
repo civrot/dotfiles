@@ -62,10 +62,11 @@ if [ $1 = "7" ] ; then
   export JAVA_HOME=$JAVA_HOME7
   export STUDIO_DIR=$STUDIO_DIR7
   export WID_LIB_DIR=$WID_LIB_DIR7
-  export CREATE_WORKSPACE_CMD=createWorkSpace7.sh
 
   alias srvstart='/IBM/WID7_WTE/runtimes/bi_v7/bin/startServer.sh server1'
   alias srvstop='/IBM/WID7_WTE/runtimes/bi_v7/bin/stopServer.sh server1'
+
+  alias trace='tail -f /IBM/WID7_WTE/runtimes/bi_v7/profiles/qwps/logs/server1/trace.log'
 
   export PROMPT="WID7"
 else 
