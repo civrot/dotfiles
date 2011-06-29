@@ -21,6 +21,7 @@ export PRETTY_PROMPT=true
 #The commands for creating/building workspaces. For cygwin these will probably need to be .bat
 export CREATE_WORKSPACE_CMD=createWorkSpace.sh
 export BUILD_WORKSPACE_CMD=buildWorkSpace.sh
+export TEST_WORKSPACE_CMD=runTest.sh
 
 #~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
 # ENVIROMENTAL VARs
@@ -55,6 +56,9 @@ BUILD_DIR=/sandbox/BuildScriptbuild
 #      There should be no need to change anything below this line. Well configuration wise, at least.
 ###############################################################################
 
+alias wid7='/IBM/WID7/eclipse -product com.ibm.wbit.feature.ide -showlocation&'
+alias wid6='/IBM/WID602/wid.bin&'
+
 #Determine which env we are wokring with
 if [ $1 = "7" ] ; then
   export WID_WORKSPACES=$WID7_WORKSPACES
@@ -67,6 +71,7 @@ if [ $1 = "7" ] ; then
   alias srvstop='/IBM/WID7_WTE/runtimes/bi_v7/bin/stopServer.sh server1'
 
   alias trace='tail -f /IBM/WID7_WTE/runtimes/bi_v7/profiles/qwps/logs/server1/trace.log'
+  alias wsadmin='/IBM/WID7_WTE/runtimes/bi_v7/bin/wsadmin.sh'
 
   export PROMPT="WID7"
 else 
@@ -79,7 +84,7 @@ else
   alias srvstart='/IBM/WID602/runtimes/bi_v6/bin/startServer.sh server1'
   alias srvstop='/IBM/WID602/runtimes/bi_v6/bin/stopServer.sh server1'
 
-
+ 
   export PROMPT="WID6"
 fi
 
@@ -107,6 +112,7 @@ alias s='cd $WID_WORKSPACE_DIR/src'
 alias t='cd $WID_WORKSPACE_DIR/unittests'
 alias cw='cd $WID_WORKSPACE_DIR && ./$CREATE_WORKSPACE_CMD && cd -'
 alias bw='cd $WID_WORKSPACE_DIR && ./$BUILD_WORKSPACE_CMD && cd -'
+alias test='cd $WID_WORKSPACE_DIR && ./$TEST_WORKSPACE_CMD && cd -'
 alias clean='cd $WID_WORKSPACE_DIR && find . -name *.class -exec rm {} \; && cd -'
 
 #SVN Aliases
@@ -152,7 +158,7 @@ checkout_workspace() {
 			fi
 
 	      		cd $WID_WORKSPACE_DIR 
-	      		./$CREATE_WORKSPACE_CMD
+	      		#./$CREATE_WORKSPACE_CMD
 	      		break
 		;;
 	  esac
