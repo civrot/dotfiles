@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source ./git_prompt
 
 #Get git information
 parse_git_branch () {
@@ -33,7 +34,7 @@ parse_svn_branch_revision() {
 
 
 scm_display() {
-	parse_svn_branch && parse_git_branch && echo ''
+	git_info && parse_svn_branch 
 }
 
 #export PS1="$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR$DEFAULT_COLOR[\u@\h \W]$ "

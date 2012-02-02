@@ -8,12 +8,12 @@
 export WORKSPACE_TOOLS=~/.workspace_tools
 
 # Your workspaces dirs
-WID6_WORKSPACES=~/code/WID
+WID6_WORKSPACES=~/code/WID6
 WID7_WORKSPACES=~/code/WID7
 
 #um, yeah....
-SVN6_REPO=http://pgesvn/svn/WebSphereProgram/workspace/developer_workspaces/wid_projects
-SVN7_REPO=http://pgesvn/svn/WebSphereProgram/migration/workspaces/wid_workspaces/
+SVN6_REPO=http://pgesvn/svn/WebSphereProgram/attic/workspace/developer_workspaces/wid_projects/
+SVN7_REPO=http://pgesvn/svn/WebSphereProgram/workspaces/wid_workspaces/
 
 #If you want your prompt to show what workspace, branch, and rev you are currently looking at set this to true
 export PRETTY_PROMPT=true
@@ -57,6 +57,7 @@ BUILD_DIR=/sandbox/BuildScriptbuild
 ###############################################################################
 
 alias wid7='/IBM/WID7/eclipse -product com.ibm.wbit.feature.ide -showlocation&'
+alias wid='wid7'
 alias wid6='/IBM/WID602/wid.bin&'
 
 #Determine which env we are wokring with
@@ -109,19 +110,18 @@ export WID_WORKSPACE_DIR="$WID_WORKSPACES"
 alias sw='select_workspace'
 alias h='cd $WID_WORKSPACE_DIR'
 alias s='cd $WID_WORKSPACE_DIR/src'
-alias t='cd $WID_WORKSPACE_DIR/unittests'
 alias cw='cd $WID_WORKSPACE_DIR && ./$CREATE_WORKSPACE_CMD && cd -'
 alias bw='cd $WID_WORKSPACE_DIR && ./$BUILD_WORKSPACE_CMD && cd -'
 alias test='cd $WID_WORKSPACE_DIR && ./$TEST_WORKSPACE_CMD && cd -'
-alias clean='cd $WID_WORKSPACE_DIR && find . -name *.class -exec rm {} \; && cd -'
+alias clean='cd $WID_WORKSPACE_DIR && find . -name *.class -exec rm {} \; && rm -rf export && cd -'
 
 #SVN Aliases
-alias co='checkout_workspace'
+alias co='checkout_workspace && bw'
 alias ci='svn ci'
 alias stg='cd $WID_WORKSPACE_DIR && svn status && cd -'
 alias st='svn status'
 alias up='cd $WID_WORKSPACE_DIR && svn up && cd -'
- 
+alias ext='svn pe svn:externals .'
 
 if ($PRETTY_PROMPT) then
 	#source the prompt script to show rev in your prompt
@@ -154,7 +154,7 @@ checkout_workspace() {
 	      		export WID_WORKSPACE_DIR="$WID_WORKSPACES/$workspace"
 	      
 	      		if ($PRETTY_PROMPT) then 
-				export PS1="\e[1;35m$PROMPT - $WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "
+				export PS1="\e[1;35m$PROMPT - $WID_WORKSPACE_NAME  \$(scm_display)\n$DEFAULT_COLOR[\u@\h \W]\$ "
 			fi
 
 	      		cd $WID_WORKSPACE_DIR 
@@ -182,7 +182,7 @@ select_workspace() {
 	      	export WID_WORKSPACE_DIR="$WID_WORKSPACES/$workspace"
 	      	
 	      	if ($PRETTY_PROMPT) then 
-			export PS1="\e[1;35m$PROMPT - $WID_WORKSPACE_NAME  $LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR\n[\u@\h \W]\$ "  
+			export PS1="\e[1;35m$PROMPT - $WID_WORKSPACE_NAME  \$(scm_display)\n$DEFAULT_COLOR[\u@\h \W]\$ "  
 		fi
 
       		cd $WID_WORKSPACE_DIR
