@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source ./git_prompt
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/git_prompt
 
 #Get git information
 parse_git_branch () {
@@ -24,7 +25,7 @@ parse_svn_current_revision() {
 
 ##Get svn branch
 parse_svn_branch() {
-	svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed 's#\(.*\)\/trunk\/*\(\w*\)\/*.*#(svn:trunk:'"$(parse_svn_current_revision)"')#' | sed 's#\(.*\)\/branches\/\([a-zA-Z0-9._-]*\)\/*.*#(svn:\2:'"$(parse_svn_current_revision)"')#' | sed 's#\(.*\)\/tags\/\([a-zA-Z0-9._-]*\)\/*.*#(svn:\2:'"$(parse_svn_current_revision)"')#'
+	svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed 's#\(.*\)\/trunk\/*\(\w*\)\/*.*#(svn:trunk:'"$(parse_svn_current_revision)"')#' | sed 's#\(.*\)\/branches\/\([a-zA-Z0-9._-]*\)\/*.*#(svn1:\2:'"$(parse_svn_current_revision)"')#' | sed 's#\(.*\)\/tags\/\([a-zA-Z0-9._-]*\)\/*.*#(svn2:\2:'"$(parse_svn_current_revision)"')#'
 }
 
 ##Parse everything and return the svn general info
@@ -34,7 +35,7 @@ parse_svn_branch_revision() {
 
 
 scm_display() {
-	git_info && parse_svn_branch 
+	git_info && parse_svn_branch
 }
 
 #export PS1="$LIGHT_CYAN\$(scm_display)$DEFAULT_COLOR$DEFAULT_COLOR[\u@\h \W]$ "

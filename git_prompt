@@ -44,6 +44,6 @@ fi
   local branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
 
   if [[ $branch != "" ]]; then
-echo -e "$LIGHT_PURPLE(git:$branch$(git_place)$(git_status)$LIGHT_PURPLE)$RESET"
+echo -e "$CYAN(git:$branch$(git_place)$(git_status)$CYAN)$RESET"
   fi
 }
