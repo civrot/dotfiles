@@ -4,11 +4,13 @@ git_info() {
   local RESET="\033[0m"
   local GRAY="\033[1;30m"
   local RED="\033[1;31m"
+  local LIGHT_RED="\033[0;31m"
   local GREEN="\033[1;32m"
   local BLUE="\033[1;34m"
   local PINK="\033[1;35m"
   local CYAN="\033[1;36m"
-  local LIGHT_PURPLE="\033[1;35m"
+  local PURPLE="\033[1;35m"
+  local WHITE="\033[1;37m"
 
   local GOOD="\xe2\x88\x99" # ∙ circle
   local AHEAD="\xe2\x86\x91" # ↑ up arrow
@@ -44,6 +46,6 @@ fi
   local branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
 
   if [[ $branch != "" ]]; then
-echo -e "$CYAN(git:$branch$(git_place)$(git_status)$CYAN)$RESET"
+echo -e "$PURPLE(git:$branch$(git_place)$(git_status)$PURPLE)$GRAY-$LIGHT_RED$(rvm-prompt)$RESET"
   fi
 }
