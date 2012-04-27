@@ -52,6 +52,8 @@ BUILD_DIR=/sandbox/BuildScriptbuild
 #export WSDEPLOY=$STUDIO_DIR/runtimes/bi_v6/bin/wsdeploy.sh
 	
 
+export PATH=$PATH:$ANT_HOME/bin
+
 ###############################################################################
 #      There should be no need to change anything below this line. Well configuration wise, at least.
 ###############################################################################
@@ -114,6 +116,7 @@ alias cw='cd $WID_WORKSPACE_DIR && ./$CREATE_WORKSPACE_CMD && cd -'
 alias bw='cd $WID_WORKSPACE_DIR && ./$BUILD_WORKSPACE_CMD && cd -'
 alias test='cd $WID_WORKSPACE_DIR && ./$TEST_WORKSPACE_CMD && cd -'
 alias clean='cd $WID_WORKSPACE_DIR && find . -name *.class -exec rm {} \; && rm -rf export && cd -'
+alias queue='wget -qO- http://xwtcvdwid7bld:8080/dashboard/forcebuild.ajax?projectName=$WID_WORKSPACE_NAME && echo'
 
 #SVN Aliases
 alias co='checkout_workspace && bw'
@@ -121,7 +124,7 @@ alias ci='svn ci'
 alias stg='cd $WID_WORKSPACE_DIR && svn status && cd -'
 alias st='svn status'
 alias up='cd $WID_WORKSPACE_DIR && svn up && cd -'
-alias ext='svn pe svn:externals .'
+alias ext='cd $WID_WORKSPACE_DIR/src && svn pe svn:externals . && cd -'
 
 if ($PRETTY_PROMPT) then
 	#source the prompt script to show rev in your prompt
