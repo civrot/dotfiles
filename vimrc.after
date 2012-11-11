@@ -1,0 +1,23 @@
+color mustang
+
+if has("gui_running")
+  set guioptions=egmrt
+endif
+
+" disable arrow keys
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
+" powerline configs
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
+let g:Powerline_symbols= 'fancy'
+let g:Powerline_stl_path_style = 'full'
