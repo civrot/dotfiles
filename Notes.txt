@@ -1,0 +1,5 @@
+- iterm2 config files?
+- iterm2 brew install
+- brew installs for all
+- caps -> ctrl config
+
