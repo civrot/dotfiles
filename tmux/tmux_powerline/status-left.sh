@@ -49,7 +49,7 @@ wan_ip+=(["separator_fg"]="white")
 
 declare -A vcs_branch
 vcs_branch+=(["script"]="${segments_path}/vcs_branch.sh")
-vcs_branch+=(["foreground"]="colour88")
+vcs_branch+=(["foreground"]="colour255")
 vcs_branch+=(["background"]="colour29")
 vcs_branch+=(["separator"]="${separator_right_bold}")
 register_segment "vcs_branch"

@@ -25,15 +25,6 @@ pwd+=(["background"]="colour89")
 pwd+=(["separator"]="${separator_left_bold}")
 #register_segment "pwd"
 
-declare -A mail_count
-#mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
-#mail_count+=(["script"]="${segments_path}/mail_count_gmail.sh")
-mail_count+=(["script"]="${segments_path}/mail_count_apple_mail.sh")
-mail_count+=(["foreground"]="white")
-mail_count+=(["background"]="red")
-mail_count+=(["separator"]="${separator_left_bold}")
-#register_segment "mail_count"
-
 declare -A now_playing
 if [ "$PLATFORM" == "linux" ]; then
 	now_playing+=(["script"]="${segments_path}/np_mpd.sh")
@@ -59,14 +50,14 @@ cpu+=(["script"]="${segments_path}/cpu.sh")
 cpu+=(["foreground"]="colour136")
 cpu+=(["background"]="colour240")
 cpu+=(["separator"]="${separator_left_bold}")
-#register_segment "cpu"
+register_segment "cpu"
 
 declare -A load
 load+=(["script"]="${segments_path}/load.sh")
 load+=(["foreground"]="colour167")
 load+=(["background"]="colour237")
 load+=(["separator"]="${separator_left_bold}")
-#register_segment "load"
+register_segment "load"
 
 declare -A battery
 if [ "$PLATFORM" == "mac" ]; then
@@ -85,7 +76,16 @@ weather+=(["script"]="${segments_path}/weather_yahoo.sh")
 weather+=(["foreground"]="colour255")
 weather+=(["background"]="colour37")
 weather+=(["separator"]="${separator_left_bold}")
-#register_segment "weather"
+register_segment "weather"
+
+declare -A mail_count
+#mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
+mail_count+=(["script"]="${segments_path}/mail_count_gmail.sh")
+#mail_count+=(["script"]="${segments_path}/mail_count_apple_mail.sh")
+mail_count+=(["foreground"]="white")
+mail_count+=(["background"]="red")
+mail_count+=(["separator"]="${separator_left_bold}")
+register_segment "mail_count"
 
 declare -A xkb_layout
 if [ "$PLATFORM" == "linux" ]; then
