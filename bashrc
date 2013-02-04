@@ -1,6 +1,7 @@
 export EDITOR="/usr/bin/vi"
 
 alias pr='pry -r ./config/environment'
+export PRY_ENABLED=true
 
 # ==================
 #     tmux
@@ -35,3 +36,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 . ~/.rvm/scripts/rvm
 
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
