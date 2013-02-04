@@ -1,4 +1,5 @@
 export EDITOR="/usr/bin/vi"
+. ~/.aliases
 
 alias pr='pry -r ./config/environment'
 export PRY_ENABLED=true
@@ -7,6 +8,7 @@ export PRY_ENABLED=true
 #     tmux
 # =================
 export TERM="xterm-256color"
+export PLATFORM="mac" # used by powerline
 
 # ====================
 #        git
