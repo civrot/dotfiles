@@ -11,7 +11,7 @@ export TERM="xterm-256color"
 # ====================
 #        git
 # ====================
-. ~/.config/git_prompt
+. ~/.git_prompt
 . /usr/local/Cellar/git/1.7.11.1/etc/bash_completion.d/git-completion.bash
 export PS1="\$(git_info)\W:\u \$ "
 
