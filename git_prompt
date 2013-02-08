@@ -25,13 +25,13 @@ git_info() {
   git_place() {
     local place=$(git status 2> /dev/null | head -n2 | tail -n1)
     if [[ $( echo $place | grep "Your branch is ahead of" ) != "" ]]; then
-echo -e "$PINK$AHEAD"
+      echo -e "$PINK$AHEAD"
     elif [[ $( echo $place | grep "Your branch is behind" ) != "" ]]; then
-echo -e "$BLUE$BEHIND"
+      echo -e "$BLUE$BEHIND"
     elif [[ $( echo $place | grep "Your branch and .* have diverged" ) != "" ]]; then
-echo -e "$CYAN$DIVERGED"
+      echo -e "$CYAN$DIVERGED"
     else
-echo -e "$GREEN$GOOD"
+      echo -e "$GREEN$GOOD"
     fi
   }
 
