@@ -1,4 +1,4 @@
-color mustang
+color railscasts
 
 if has("gui_running")
   set guioptions=egmrt
@@ -32,3 +32,9 @@ au BufWritePost .vimrc so ~/.vimrc.after
 
 " ESC
 inoremap ii <Esc>
+
+" clean signColumn for https://github.com/airblade/vim-gitgutter
+highlight clear SignColumn
+" dummy sign so that the sign col is always present
+:sign define dummy
+:execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
