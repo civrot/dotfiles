@@ -1,0 +1,17 @@
+[user]
+	name = Victor Asteinza
+	email = victor@theclymb.com
+[color]
+	ui = true
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/victora/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[github]
+  user = civrot
+[help]
+  autocorrect = 1
+[push]
+  default = current
