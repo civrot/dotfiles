@@ -6,7 +6,10 @@ source ~/.aliases
 # clymb specifics
 # =================
 alias pr='pry -r ./config/environment'
-#export PRY_ENABLED=true
+export PRY_ENABLED=true
+
+export BETTER_ERRORS_ENABLED=true
+export BETTER_ERRORS_EDITOR="viminiterm"
 
 # ==================
 #     tmux
@@ -35,11 +38,18 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin:/usr/local/mysql/bin
 
 
+ #====================
+     #RVM
+ #====================
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#source ~/.rvm/scripts/rvm
+
+# =====================
+#    RBENV
 # ====================
-#     RVM
-# ====================
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-source ~/.rvm/scripts/rvm
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 

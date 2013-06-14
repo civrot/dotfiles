@@ -1,4 +1,5 @@
-color railscasts
+"color railscasts
+color detailed
 
 if has("gui_running")
   set guioptions=egmrt
@@ -38,3 +39,6 @@ highlight clear SignColumn
 " dummy sign so that the sign col is always present
 :sign define dummy
 :execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
+"gist default setting
+let g:gist_post_private = 1
