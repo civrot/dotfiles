@@ -31,25 +31,18 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D"
 alias t='todo.sh'
 export TODOTXT_DEFAULT_ACTION=ls
 #export TODO_DIR=~/.todo.txt
-source `brew --prefix todo-txt`/etc/bash_completion.d/todo_completion
+#source `brew --prefix todo-txt`/etc/bash_completion.d/todo_completion
 complete -F _todo t
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin:/usr/local/mysql/bin
-
-
- #====================
-     #RVM
- #====================
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#source ~/.rvm/scripts/rvm
+PATH=$HOME/bin:/usr/local/bin:$PATH:
 
 # =====================
 #    RBENV
 # ====================
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=clang --with-openssl-dir=`brew --prefix openssl`"
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
