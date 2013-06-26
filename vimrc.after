@@ -43,14 +43,6 @@ highlight clear SignColumn
 "gist default setting
 let g:gist_post_private = 1
 
-"Making Splits Better
-"=====================
-"screw <C-W> for navigating
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 "Open splits below and to the right
 set splitbelow
 set splitright
