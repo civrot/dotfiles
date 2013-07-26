@@ -46,3 +46,6 @@ let g:gist_post_private = 1
 "Open splits below and to the right
 set splitbelow
 set splitright
+
+"vroom
+let g:vroom_use_vimux = 1

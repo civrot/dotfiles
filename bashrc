@@ -22,7 +22,7 @@ export PLATFORM="mac" # used by powerline
 # ====================
 source ~/.git_prompt
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-export PS1="\$(git_info)\W:\u \$ "
+export PS1="\$(git_info)\n\W\$ "
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # ====================
@@ -49,3 +49,5 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+
+set -o vi
