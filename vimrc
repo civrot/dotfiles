@@ -1,10 +1,12 @@
 syntax on
 color detailed
-set colorcolumn=80
 
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
-  endifn
+endif
+
+set colorcolumn=80
+set number 
 
 " disable arrow keys
 inoremap  <Up>     <NOP>
