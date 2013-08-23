@@ -1,50 +1,10 @@
-set nocompatible
-filetype off " required! by vundle
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" ========================
-" Bundles
-" ========================
-
-Bundle 'rking/ag.vim.git'
-
-Bundle 'rking/vim-detailed'
-Bundle 'Lokaltog/vim-powerline.git'
-
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ddollar/nerdcommenter'
-Bundle 'vim-scripts/ZoomWin'
-
-Bundle 'scrooloose/syntastic'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-fugitive'
-Bundle 'skalnik/vim-vroom'
-
-Bundle 'tpope/vim-rails'
-Bundle 'slim-template/slim'
-
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'benmills/vimux.git'
-
-filetype plugin indent on     " required! by vundle
-
-" ========================
-"  Config
-" ========================
-
 syntax on
 color detailed
 set colorcolumn=80
 
-if has("gui_running")
-  set guioptions=egmrt
-endif
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+  endifn
 
 " disable arrow keys
 inoremap  <Up>     <NOP>

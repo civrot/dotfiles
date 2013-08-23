@@ -1,0 +1,31 @@
+set nocompatible
+
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+Bundle 'rking/ag.vim.git'
+
+Bundle 'rking/vim-detailed'
+Bundle 'Lokaltog/vim-powerline.git'
+
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ddollar/nerdcommenter'
+Bundle 'vim-scripts/ZoomWin'
+
+Bundle 'scrooloose/syntastic'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
+Bundle 'skalnik/vim-vroom'
+
+Bundle 'tpope/vim-rails'
+Bundle 'slim-template/slim'
+
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'benmills/vimux.git'
+
+filetype plugin indent on
