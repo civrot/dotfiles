@@ -1,9 +1,9 @@
-syntax on
-color detailed
-
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
 endif
+
+syntax on
+color detailed
 
 set colorcolumn=80
 set number 
