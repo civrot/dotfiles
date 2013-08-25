@@ -9,7 +9,7 @@ for name in *; do
       echo "WARNING: $target exists but is not a symlink."
     fi
   else
-    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ]; then
+    if [ "$name" != 'bootstrap' ] && [ "$name" != 'README.md' ] && [ "$name" != 'Notes.txt' ]; then
       echo "Creating $target"
       ln -sf "$PWD/$name" "$target"
     fi
