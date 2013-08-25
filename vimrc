@@ -7,6 +7,7 @@ color detailed
 
 set colorcolumn=80
 set number 
+set nowrap
 
 " disable arrow keys
 inoremap  <Up>     <NOP>
