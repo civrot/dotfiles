@@ -47,7 +47,7 @@ export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=c
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 
 
 set -o vi

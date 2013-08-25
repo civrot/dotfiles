@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+if [ "$#" -eq 1 ]
+then
+  target=$1 
+else
+  target="development"
+fi
+
+tmux new-session -s $target -n editor -d
+tmux send-keys -t $target 'vim' C-m
+tmux split-window -h -p 35 -t $target
+tmux split-window -v -p 50 -t $target
+tmux send-keys -t $target 'zeus start' C-m
+tmux new-window -n console -t $target
+
+tmux new-window -n server -t $target
+tmux split-window -h -p 50 -t $target
+
+tmux select-window -t $targe:1
+tmux attach -t $target
