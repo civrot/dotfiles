@@ -35,7 +35,7 @@ noremap <silent><Leader>/ :nohls<CR>
 au BufWritePost .vimrc so ~/.vimrc
 
 " ESC
-inoremap ii <Esc
+inoremap ii <Esc>
 
 " dummy sign so that the sign col is always present
 :sign define dummy
@@ -52,3 +52,6 @@ set splitright
 
 "vroom
 let g:vroom_use_vimux = 1
+
+"nerdtree
+noremap <silent><Leader>n :NERDTreeToggle<CR>
