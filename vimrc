@@ -9,6 +9,10 @@ set colorcolumn=80
 set number 
 set nowrap
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " disable arrow keys
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
