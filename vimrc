@@ -1,19 +1,62 @@
+""
+"" Some of these borrowed from https://github.com/carlhuda/janus
+
+""
+"" Vundle
+""
+
 if filereadable(expand("~/.vimrc.bundles"))
-    source ~/.vimrc.bundles
+  source ~/.vimrc.bundles
 endif
 
-syntax on
+""
+""  Basic
+""
+
+set nocompatible
+set number
+syntax enable
+set encoding=utf-8
 color detailed
-
 set colorcolumn=80
-set number 
+
+""
+"" Whitespace
+""
+
 set nowrap
+set tabstop=2
+set shiftwidth=2
+"set expandtab
+set backspace=indent,eol,start
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
+""
+"" List
+"" borrowed from https://github.com/carlhuda/janus/blob/master/janus/vim/core/before/plugin/settings.vim
+""
+set list
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the left of the screen
 
-" disable arrow keys
+""
+"" Powerline
+""
+
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
+let g:Powerline_symbols= 'fancy'
+let g:Powerline_stl_path_style = 'short'
+
+""
+"" Disable Arrow Keys
+""
+
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -25,13 +68,6 @@ noremap   <Right>  <NOP>
 
 set clipboard=unnamed " Now all operations work OS clipboard
 
-" powerline configs
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-
-let g:Powerline_symbols= 'fancy'
-let g:Powerline_stl_path_style = 'short'
-
 "clear search hilights
 noremap <silent><Leader>/ :nohls<CR>
 
@@ -41,21 +77,37 @@ au BufWritePost .vimrc so ~/.vimrc
 " ESC
 inoremap ii <Esc>
 
+""
+"" GitGutter
+""
 " dummy sign so that the sign col is always present
 :sign define dummy
 :execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 " clean signColumn for https://github.com/airblade/vim-gitgutter
 highlight clear SignColumn
 
-"gist default setting
+""
+"" Gist
+""
 let g:gist_post_private = 1
 
 "Open splits below and to the right
 set splitbelow
 set splitright
 
-"vroom
+""
+"" VRoom
+""
 let g:vroom_use_vimux = 1
 
-"nerdtree
+""
+"" NERDTree
+""
 noremap <silent><Leader>n :NERDTreeToggle<CR>
+
+""
+"" Backup and swap files
+""
+
+set backupdir^=~/.vim/_backup//    " where to put backup files.
+set directory^=~/.vim/_temp//      " where to put swap files.
