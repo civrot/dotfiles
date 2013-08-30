@@ -27,7 +27,7 @@ set colorcolumn=80
 set nowrap
 set tabstop=2
 set shiftwidth=2
-"set expandtab
+set expandtab
 set backspace=indent,eol,start
 
 ""
