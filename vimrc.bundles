@@ -29,4 +29,7 @@ Bundle 'slim-template/slim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux.git'
 
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+
 filetype plugin indent on
