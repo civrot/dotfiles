@@ -10,12 +10,14 @@ Bundle 'gmarik/vundle'
 Bundle 'rking/ag.vim.git'
 
 Bundle 'rking/vim-detailed'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline.git'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'vim-scripts/ZoomWin'
+Bundle 'jeetsukumaran/vim-buffergator'
 
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
@@ -24,7 +26,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'skalnik/vim-vroom'
 
 Bundle 'tpope/vim-rails'
-Bundle 'slim-template/slim'
+Bundle 'slim-template/vim-slim'
 
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux.git'
