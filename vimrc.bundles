@@ -23,6 +23,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
+"For gist-vim
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 Bundle 'skalnik/vim-vroom'
 
 Bundle 'tpope/vim-rails'
