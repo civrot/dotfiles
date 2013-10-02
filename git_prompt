@@ -3,6 +3,7 @@ git_info() {
   # colors
   local RESET="\033[0m"
   local GRAY="\033[0;37m"
+  local LIGHT_GRAY="\e[38;05;237m"
   local RED="\033[1;31m"
   local LIGHT_RED="\033[0;31m"
   local GREEN="\033[1;32m"
@@ -19,6 +20,9 @@ git_info() {
   local CHANGED="\xcf\x9f" # ϟ lightning
   local DIVERGED="\xe2\x86\x95" # ↕ up-down
   local UNTRACKED="\xe0\xb2\xa0_\xe0\xb2\xa0" # ಠ_ಠ disapproval
+
+  local LEFTP="\xE2\xA6\x97"
+  local RIGHTP="\xE2\xA6\x98"
 
   local NEW_LINE="\n"
 
@@ -46,11 +50,11 @@ git_info() {
     fi
   }
 
-  local branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
+  local branch=$(git branch -v --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
 
   if [[ $branch != "" ]]; then
-    echo -e "$BROWN[$branch$(git_place)$(git_status)$BROWN]$RESET"
-    #echo -e "$BROWN($branch$(git_place)$(git_status)$BROWN)\n$RESET"
-    # echo -e "\n\n $BROWN($branch$(git_place)$(git_status)$BROWN)$RESET"
+    info=($branch)
+    #echo -e "$GRAY[$PURPLE${info[1]} $BROWN${info[0]} $(git_place)$(git_status)$GRAY]$RESET"
+    echo -e "$GRAY$LEFTP$LIGHT_GRAY${info[1]} $BROWN${info[0]} $(git_place)$(git_status)$GRAY$RIGHTP$RESET"
   fi
 }
