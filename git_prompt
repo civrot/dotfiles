@@ -3,7 +3,7 @@ git_info() {
   # colors
   local RESET="\033[0m"
   local GRAY="\033[0;37m"
-  local LIGHT_GRAY="\e[38;05;237m"
+  local LIGHT_GRAY="\033[1;30m"
   local RED="\033[1;31m"
   local LIGHT_RED="\033[0;31m"
   local GREEN="\033[1;32m"
