@@ -5,3 +5,8 @@ alias ....='cd ../../..' # Go up two directories
 alias -- -='cd -'        # Go back
 
 alias z='zeus'
+
+if [ -f ~/.dotfiles.local/aliases ]
+then
+  source ~/.dotfiles.local/aliases
+fi
