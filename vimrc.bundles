@@ -16,7 +16,7 @@ Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
-Bundle 'vim-scripts/ZoomWin'
+Bundle 'regedarek/ZoomWin'
 Bundle 'jeetsukumaran/vim-buffergator'
 
 Bundle 'scrooloose/syntastic'
@@ -28,6 +28,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'skalnik/vim-vroom'
 
+Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'slim-template/vim-slim'
 
