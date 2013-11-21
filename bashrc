@@ -1,16 +1,6 @@
 export EDITOR="/usr/bin/vi"
 source ~/.aliases
 
-# should add a ~/.custom that pulls in custom config
-# ===================
-# clymb specifics
-# =================
-alias pr='pry -r ./config/environment'
-export PRY_ENABLED=true
-
-export BETTER_ERRORS_ENABLED=true
-export BETTER_ERRORS_EDITOR="viminiterm"
-
 # ==================
 #     tmux
 # =================
@@ -49,5 +39,9 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 ### Added by the Heroku Toolbelt
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 
-
 set -o vi
+
+if [ -f ~/.dotfiles.local/bashrc ]
+then
+    source ~/.dotfiles.local/bashrc
+fi
