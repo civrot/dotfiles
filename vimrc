@@ -1,3 +1,7 @@
+" automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
+
+
 ""
 "" Some of these borrowed from https://github.com/carlhuda/janus
 
@@ -6,7 +10,8 @@
 ""
 
 if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+  au BufWritePost .vimrc.bundles so ~/.vimrc.bundles
+  so ~/.vimrc.bundles
 endif
 
 ""
@@ -70,9 +75,6 @@ set clipboard=unnamed " Now all operations work OS clipboard
 
 "clear search hilights
 noremap <silent><Leader>/ :nohls<CR>
-
-" automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
 
 " ESC
 inoremap ii <Esc>
