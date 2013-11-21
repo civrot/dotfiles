@@ -13,5 +13,9 @@
 [push]
   default = current
 [alias]
-  bam  = "!source ~/.githelpers && delete_local_merged_branches"
-  bamr = "!source ~/.githelpers && delete_remote_merged_branches"
+  bam            =  "!source ~/.githelpers && delete_local_merged_branches"
+  bamr           =  "!source ~/.githelpers && delete_remote_merged_branches"
+  today          =  "log --since=midnight --oneline --author='Victor Asteinza'"
+  today-all      =  "log --since=midnight --pretty=short"
+  yesterday      =  "log --since=yesterday.midnight --until=midnight --oneline --author='Victor Asteinza'"
+  yesterday-all  =  "log --since=yesterday.midnight --until=midnight --pretty=short"
