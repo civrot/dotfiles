@@ -24,6 +24,9 @@ export TODOTXT_DEFAULT_ACTION=ls
 #source `brew --prefix todo-txt`/etc/bash_completion.d/todo_completion
 complete -F _todo t
 
+# ====================
+#      brew
+# ====================
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 PATH=$HOME/bin:/usr/local/bin:$PATH:
 
@@ -34,10 +37,11 @@ export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=clang --with-openssl-dir=`brew --prefix openssl`"
 
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-
-### Added by the Heroku Toolbelt
+# ====================
+#      heroku
+# ====================
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
+
 
 set -o vi
 
