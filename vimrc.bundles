@@ -10,9 +10,11 @@ Bundle 'gmarik/vundle'
 Bundle 'rking/ag.vim.git'
 
 Bundle 'rking/vim-detailed'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline.git'
 
+Bundle 'SirVer/ultisnips'
+Bundle 'vim-scripts/AutoComplPop'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
@@ -31,10 +33,12 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux.git'
 
+"DASH
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 
