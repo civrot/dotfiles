@@ -24,12 +24,13 @@ syntax enable
 set encoding=utf-8
 color detailed
 set colorcolumn=80
+set incsearch
 
 ""
 "" Whitespace
 ""
 
-set wrap
+set nowrap
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -62,14 +63,14 @@ let g:Powerline_stl_path_style = 'short'
 "" Disable Arrow Keys
 ""
 
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
+"inoremap  <Up>     <NOP>
+"inoremap  <Down>   <NOP>
+"inoremap  <Left>   <NOP>
+"inoremap  <Right>  <NOP>
+"noremap   <Up>     <NOP>
+"noremap   <Down>   <NOP>
+"noremap   <Left>   <NOP>
+"noremap   <Right>  <NOP>
 
 set clipboard=unnamed " Now all operations work OS clipboard
 
