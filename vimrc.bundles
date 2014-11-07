@@ -10,7 +10,6 @@ Bundle 'gmarik/vundle'
 Bundle 'rking/ag.vim.git'
 
 Bundle 'rking/vim-detailed'
-"Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline.git'
 
 Bundle 'SirVer/ultisnips'
@@ -37,9 +36,5 @@ Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux.git'
-
-"DASH
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
 
 filetype plugin indent on

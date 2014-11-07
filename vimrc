@@ -1,7 +1,6 @@
 " automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
 
-
 ""
 "" Some of these borrowed from https://github.com/carlhuda/janus
 
@@ -19,12 +18,14 @@ endif
 ""
 
 set nocompatible
-set number
+set nonumber
+set relativenumber
 syntax enable
 set encoding=utf-8
 color detailed
 set colorcolumn=80
 set incsearch
+set clipboard=unnamed " Now all operations work OS clipboard
 
 ""
 "" Whitespace
@@ -72,8 +73,6 @@ let g:Powerline_stl_path_style = 'short'
 "noremap   <Left>   <NOP>
 "noremap   <Right>  <NOP>
 
-set clipboard=unnamed " Now all operations work OS clipboard
-
 "clear search hilights
 noremap <silent><Leader>/ :nohls<CR>
 
@@ -93,6 +92,7 @@ highlight clear SignColumn
 "" Gist
 ""
 let g:gist_post_private = 1
+let g:gist_open_browser_after_post = 1 " open gist after it's created
 
 "Open splits below and to the right
 set splitbelow
