@@ -7,6 +7,8 @@ alias -- -='cd -'        # Go back
 alias z='zeus'
 alias zs='zeus start'
 
+eval "$(hub alias -s)"
+
 if [ -f ~/.dotfiles.local/aliases ]
 then
   source ~/.dotfiles.local/aliases
