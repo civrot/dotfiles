@@ -37,4 +37,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux.git'
 
+Plugin 'nelstrom/vim-qargs'
+
 filetype plugin indent on
