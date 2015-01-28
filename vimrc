@@ -51,6 +51,11 @@ set listchars+=precedes:<         " The character to show in the last column whe
                                   " off and the line continues beyond the left of the screen
 
 ""
+"" File Extensions
+""
+au BufNewFile,BufRead *.md set filetype=markdown
+
+""
 "" Powerline
 ""
 
