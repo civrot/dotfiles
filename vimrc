@@ -25,7 +25,7 @@ set encoding=utf-8
 color detailed
 set colorcolumn=80
 set incsearch
-set clipboard=unnamed " Now all operations work OS clipboard
+"set clipboard=unnamed " Now all operations work OS clipboard
 
 ""
 "" Whitespace
