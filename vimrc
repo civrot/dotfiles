@@ -102,6 +102,7 @@ set splitright
 "" VRoom
 ""
 let g:vroom_use_vimux = 1
+let g:vroom_use_spring = 1
 
 ""
 "" NERDTree
