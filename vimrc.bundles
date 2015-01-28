@@ -13,7 +13,6 @@ Bundle 'rking/vim-detailed'
 Bundle 'Lokaltog/vim-powerline.git'
 
 Bundle 'SirVer/ultisnips'
-Bundle 'vim-scripts/AutoComplPop'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
@@ -24,6 +23,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
+
 "For gist-vim
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
