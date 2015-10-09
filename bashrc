@@ -50,6 +50,10 @@ LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
    . $LUNCHY_DIR/lunchy-completion.bash
  fi
 
+# ====================
+#      pg
+# ====================
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 set -o vi
 
 if [ -f ~/.dotfiles.local/bashrc ]
