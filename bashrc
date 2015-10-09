@@ -43,6 +43,10 @@ export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=c
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 
 
+# ====================
+#      pg
+# ====================
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 set -o vi
 
 if [ -f ~/.dotfiles.local/bashrc ]
