@@ -42,6 +42,13 @@ export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=c
 # ====================
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 
+# ====================
+#      lunchy
+# ====================
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+ if [ -f $LUNCHY_DIR/lunchy-completion.bash ]; then
+   . $LUNCHY_DIR/lunchy-completion.bash
+ fi
 
 # ====================
 #      pg
