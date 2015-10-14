@@ -56,6 +56,11 @@ LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 set -o vi
 
+# ====================
+#      awscli
+# ====================
+complete -C aws_completer aws
+
 if [ -f ~/.dotfiles.local/bashrc ]
 then
     source ~/.dotfiles.local/bashrc
