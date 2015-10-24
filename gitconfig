@@ -1,6 +1,6 @@
 [user]
 	name = Victor Asteinza
-	email = victor@theclymb.com
+	email = vic+github@civrot.org
 [color]
 	ui = true
 [core]
@@ -8,6 +8,7 @@
 	excludesfile = ~/.gitignore_global
 [github]
   user = civrot
+	token = 8a4539c3d3c1c215552f05bf5ef6cd4a5ffb26c0
 [help]
   autocorrect = 1
 [push]
