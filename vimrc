@@ -114,6 +114,13 @@ let g:vroom_use_spring = 1
 ""
 noremap <silent><Leader>n :NERDTreeToggle<CR>
 
+
+""
+"" Syntastic
+""
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_scss_checkers = ['scss_lint']
+
 ""
 "" Backup and swap files
 ""
