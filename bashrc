@@ -1,4 +1,4 @@
-export EDITOR="mvim -v"
+export EDITOR="vim -v"
 source ~/.aliases
 
 # ==================
