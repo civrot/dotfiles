@@ -8,11 +8,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'rking/ag.vim.git'
+Bundle 'tpope/vim-eunuch'
 
 Bundle 'rking/vim-detailed'
 Bundle 'Lokaltog/vim-powerline.git'
 
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
@@ -38,5 +40,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux.git'
 
 Plugin 'nelstrom/vim-qargs'
+
+Plugin 'davidoc/taskpaper.vim'
+
+Plugin 'itspriddle/vim-marked'
 
 filetype plugin indent on
