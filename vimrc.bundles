@@ -7,9 +7,13 @@ call vundle#rc()
 " Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+" Find things
 Bundle 'rking/ag.vim.git'
+
+" File management
 Bundle 'tpope/vim-eunuch'
 
+" Appearance
 Bundle 'rking/vim-detailed'
 Bundle 'Lokaltog/vim-powerline.git'
 
@@ -23,21 +27,34 @@ Bundle 'jeetsukumaran/vim-buffergator'
 
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
+
+" Git
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
+Bundle 'idanarye/vim-merginal'
 
 "For gist-vim
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+
 Bundle 'skalnik/vim-vroom'
+"Bundle 'thoughtbot/vim-rspec'
+"Bundle 'jgdavey/vim-turbux'
+
+"Bundle 'tpope/vim-dispatch'
+
+Bundle 'benmills/vimux.git'
+"Bundle 'jgdavey/tslime.vim'
 
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
+
+
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'benmills/vimux.git'
 
 Plugin 'nelstrom/vim-qargs'
 
