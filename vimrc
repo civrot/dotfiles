@@ -79,7 +79,7 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 "clear search hilights
-noremap <silent><Leader>/ :nohls<CR>
+noremap <silent>// :nohls<CR>
 
 " ESC
 inoremap ii <Esc>
