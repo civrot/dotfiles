@@ -122,8 +122,16 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_scss_checkers = ['scss_lint']
 
 ""
+"" Spelling
+""
+" Spell-check Git messages
+autocmd FileType gitcommit setlocal spell
+
+" Spell-check Markdown files
+autocmd FileType markdown setlocal spell
+
+
 "" Backup and swap files
 ""
-
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
