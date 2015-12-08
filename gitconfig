@@ -21,5 +21,6 @@
   today-all      = "log --since=midnight --pretty=short"
   yesterday      = "log --since=yesterday.midnight --until=midnight --oneline --author='Victor Asteinza'"
   yesterday-all  = "log --since=yesterday.midnight --until=midnight --pretty=short"
+  merges         = "log --merges --since=yesterday.midnight --oneline"
 [pull]
 	ff = only
