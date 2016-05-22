@@ -27,6 +27,8 @@ set colorcolumn=80
 set incsearch
 "set clipboard=unnamed " Now all operations work OS clipboard
 
+" disable Press Enter
+set shortmess=a
 ""
 "" Whitespace
 ""
@@ -78,8 +80,10 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+" set hlsearch
+set hlsearch
 "clear search hilights
-noremap <silent>// :nohls<CR>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " ESC
 inoremap ii <Esc>
@@ -107,8 +111,9 @@ set splitright
 "" VRoom
 ""
 let g:vroom_use_vimux = 1
-let g:vroom_use_spring = 1
-
+"let g:vroom_use_spring = 1
+let g:vroom_use_binstubs = 1
+"let g:vroom_use_dispatch = 1
 ""
 "" NERDTree
 ""
