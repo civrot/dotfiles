@@ -27,7 +27,7 @@ complete -F _todo t
 # ====================
 #      brew
 # ====================
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+source `brew --prefix`/etc/bash_completion.d/brew
 PATH=$HOME/bin:/usr/local/bin:$PATH:
 
 # =====================
