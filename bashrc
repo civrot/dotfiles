@@ -16,15 +16,6 @@ export PS1="\$(git_info)\n\W\$ "
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # ====================
-#      todotxt
-# ====================
-alias t='todo.sh'
-export TODOTXT_DEFAULT_ACTION=ls
-#export TODO_DIR=~/.todo.txt
-#source `brew --prefix todo-txt`/etc/bash_completion.d/todo_completion
-complete -F _todo t
-
-# ====================
 #      brew
 # ====================
 source `brew --prefix`/etc/bash_completion.d/brew
