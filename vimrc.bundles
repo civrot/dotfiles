@@ -26,6 +26,7 @@ Bundle 'regedarek/ZoomWin'
 Bundle 'jeetsukumaran/vim-buffergator'
 
 Bundle 'scrooloose/syntastic'
+Bundle 'ngmy/vim-rubocop'
 Bundle 'godlygeek/tabular'
 
 " Git
@@ -33,6 +34,8 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'idanarye/vim-merginal'
+
+"Bundle 'Valloric/YouCompleteMe'
 
 "For gist-vim
 Bundle 'mattn/webapi-vim'
@@ -43,7 +46,6 @@ Bundle 'skalnik/vim-vroom'
 "Bundle 'jgdavey/vim-turbux'
 
 "Bundle 'tpope/vim-dispatch'
-
 Bundle 'benmills/vimux.git'
 "Bundle 'jgdavey/tslime.vim'
 
@@ -58,6 +60,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 Plugin 'nelstrom/vim-qargs'
 
+Plugin 'rizzatti/dash.vim'
 Plugin 'davidoc/taskpaper.vim'
 
 Plugin 'itspriddle/vim-marked'
