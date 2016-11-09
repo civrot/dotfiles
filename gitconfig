@@ -14,7 +14,7 @@
 [push]
   default = current
 [alias]
-  copr          = "!sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -"
+  pr             = "!sh -c 'git fetch origin pull/$1/head:pr_$1 && git checkout pr_$1' -"
   bam            = "!source ~/.githelpers && delete_local_merged_branches"
   bamr           = "!source ~/.githelpers && delete_remote_merged_branches"
   today          = "log --since=midnight --oneline --author='Victor Asteinza'"
