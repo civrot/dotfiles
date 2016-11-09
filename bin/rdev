@@ -14,7 +14,6 @@ tmux split-window -v -p 50 -t $target
 tmux new-window -n notes -t $target
 tmux split-window -h -p 50 -t $target
 tmux split-window -v -p 50 -t $target
-tmux send-keys -t $target 'zs' C-m
 
 tmux select-window -t $targe:1
 tmux attach -t $target
