@@ -73,4 +73,7 @@ hitch() {
 alias unhitch='hitch -u'
 
 # Uncomment to persist pair info between terminal instances
-hitch
+# hitch
+
+export GEMNASIUM_TOKEN=95b188170cd9932f75b15b2c2e95ddb8
+
