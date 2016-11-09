@@ -12,7 +12,12 @@ export PLATFORM="mac" # used by powerline
 # ====================
 source ~/.git_prompt
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-export PS1="\$(git_info)\n\W\$ "
+git_prompt="\$(git_info)"
+if [[ $git_prompt != "" ]]; then
+  export PS1="$git_prompt\W \$ "
+else
+  export PS1="\W \$ "
+fi
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # ====================

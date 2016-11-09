@@ -41,7 +41,7 @@ git_info() {
 
   git_status() {
     local status=$(git status 2> /dev/null | tail -n1)
-    if [[ $status != "nothing to commit, working directory clean" ]]; then
+    if [[ $status != "nothing to commit, working tree clean" ]]; then
       if [[ $status == 'nothing added to commit but untracked files present (use "git add" to track)' ]]; then
         echo -e "$GRAY$UNTRACKED"
       else
@@ -56,5 +56,6 @@ git_info() {
     info=($branch)
     #echo -e "$GRAY[$PURPLE${info[1]} $BROWN${info[0]} $(git_place)$(git_status)$GRAY]$RESET"
     echo -e "$GRAY$LEFTP$LIGHT_GRAY${info[1]} $BROWN${info[0]} $(git_place)$(git_status)$GRAY$RIGHTP$RESET"
+    echo " "
   fi
 }
