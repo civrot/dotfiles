@@ -136,6 +136,11 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal spell
 
 
+""
+"" Ctrl-P
+""
+let g:ctrlp_cmd = 'CtrlPMRU'
+
 "" Backup and swap files
 ""
 set backupdir^=~/.vim/_backup//    " where to put backup files.
