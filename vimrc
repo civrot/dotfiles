@@ -18,8 +18,8 @@ endif
 ""
 
 set nocompatible
-set nonumber
 set relativenumber
+set number
 syntax enable
 set encoding=utf-8
 color detailed
