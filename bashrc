@@ -25,7 +25,7 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D"
 # ====================
 source `brew --prefix`/etc/bash_completion.d/brew
 PATH=$HOME/bin:/usr/local/bin:$PATH:
-
+PATH=$HOME/.nodebrew/current/bin:$PATH
 # =====================
 #    RBENV
 # ====================
@@ -37,6 +37,11 @@ export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=c
 #      heroku
 # ====================
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
+
+# ====================
+#      nodebrew
+# ====================
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # ====================
 #      lunchy
