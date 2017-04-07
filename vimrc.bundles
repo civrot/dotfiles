@@ -33,9 +33,8 @@ Bundle 'godlygeek/tabular'
 
 " Git
 Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
-Bundle 'idanarye/vim-merginal'
+Bundle 'jreybert/vimagit'
 
 "Bundle 'Valloric/YouCompleteMe'
 
