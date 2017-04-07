@@ -16,6 +16,7 @@ Bundle 'tpope/vim-eunuch'
 " Appearance
 Bundle 'rking/vim-detailed'
 Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'altercation/vim-colors-solarized'
 
 " Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'

@@ -22,7 +22,8 @@ set relativenumber
 set number
 syntax enable
 set encoding=utf-8
-color detailed
+set background=dark
+color solarized
 set colorcolumn=80
 set incsearch
 "set clipboard=unnamed " Now all operations work OS clipboard
