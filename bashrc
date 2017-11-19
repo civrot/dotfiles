@@ -11,7 +11,6 @@ export PLATFORM="mac" # used by powerline
 #        git
 # ====================
 source ~/.git_prompt
-source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
 git_prompt="\$(git_info)"
 if [[ $git_prompt != "" ]]; then
   export PS1="$git_prompt\W \$ "
@@ -26,12 +25,15 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D"
 source `brew --prefix`/etc/bash_completion.d/brew
 PATH=$HOME/bin:/usr/local/bin:$PATH:
 PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # =====================
 #    RBENV
 # ====================
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=clang --with-openssl-dir=`brew --prefix openssl`"
+export CONFIGURE_OPTS="--with-readline-dir=/usr/local/opt/readline --with-gcc=clang --with-openssl-dir=/usr/local/opt/openssl"
+# Following line is commented out, because the brew look up was slowing down bash startup
+# export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=clang --with-openssl-dir=`brew --prefix openssl`"
 
 # ====================
 #      heroku
