@@ -61,9 +61,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 Plugin 'nelstrom/vim-qargs'
 
-Plugin 'rizzatti/dash.vim'
-Plugin 'davidoc/taskpaper.vim'
-
 Plugin 'itspriddle/vim-marked'
 
 filetype plugin indent on
