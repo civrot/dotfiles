@@ -1,5 +1,6 @@
 export EDITOR="vim -v"
 source ~/.aliases
+source /usr/local/etc/bash_completion
 
 # ==================
 #     tmux
@@ -41,11 +42,6 @@ export CONFIGURE_OPTS="--with-readline-dir=/usr/local/opt/readline --with-gcc=cl
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 
 # ====================
-#      nodebrew
-# ====================
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# ====================
 #      lunchy
 # ====================
 LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
@@ -64,23 +60,16 @@ set -o vi
 # ====================
 complete -C aws_completer aws
 
+# ====================
+#      nvm
+# ====================
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# ====================
+#      local bashrc
+# ====================
 if [ -f ~/.dotfiles.local/bashrc ]
 then
     source ~/.dotfiles.local/bashrc
 fi
-
-# Add the following to your ~/.bashrc or ~/.zshrc
-#
-# Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
-
-hitch() {
-  command hitch "$@"
-  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-}
-alias unhitch='hitch -u'
-
-# Uncomment to persist pair info between terminal instances
-# hitch
-
-export GEMNASIUM_TOKEN=95b188170cd9932f75b15b2c2e95ddb8
-
