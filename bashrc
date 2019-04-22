@@ -1,6 +1,8 @@
 export EDITOR="vim -v"
 source ~/.aliases
-source /usr/local/etc/bash_completion
+# source /usr/local/etc/bash_completion
+
+set -o vi
 
 # ==================
 #     tmux
@@ -23,7 +25,8 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D"
 # ====================
 #      brew
 # ====================
-source `brew --prefix`/etc/bash_completion.d/brew
+# source `brew --prefix`/etc/bash_completion.d/brew
+# source /usr/local/etc/bash_completion.d/brew
 PATH=$HOME/bin:/usr/local/bin:$PATH:
 PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -42,29 +45,20 @@ export CONFIGURE_OPTS="--with-readline-dir=/usr/local/opt/readline --with-gcc=cl
 export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 
 # ====================
-#      lunchy
-# ====================
-LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
- if [ -f $LUNCHY_DIR/lunchy-completion.bash ]; then
-   . $LUNCHY_DIR/lunchy-completion.bash
- fi
-
-# ====================
 #      pg
 # ====================
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-set -o vi
+export PATH=$PATH:/usr/local/opt/postgresql@10/bin
 
 # ====================
 #      awscli
 # ====================
-complete -C aws_completer aws
+# complete -C aws_completer aws
 
 # ====================
 #      nvm
 # ====================
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # ====================
 #      local bashrc
