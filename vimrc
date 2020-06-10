@@ -19,7 +19,7 @@ endif
 
 set nocompatible
 set relativenumber
-set number
+" set number
 syntax enable
 set encoding=utf-8
 set background=dark
@@ -65,6 +65,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
 let g:Powerline_symbols= 'fancy'
 let g:Powerline_stl_path_style = 'short'
 
