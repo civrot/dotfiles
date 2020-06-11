@@ -12,7 +12,8 @@ Bundle 'rking/ag.vim.git'
 
 " Appearance
 " Bundle 'rking/vim-detailed'
-Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'altercation/vim-colors-solarized'
 
 " Bundle 'SirVer/ultisnips'

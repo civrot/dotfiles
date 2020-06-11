@@ -7,7 +7,6 @@ au BufWritePost .vimrc so ~/.vimrc
 ""
 "" Vundle
 ""
-
 if filereadable(expand("~/.vimrc.bundles"))
   au BufWritePost .vimrc.bundles so ~/.vimrc.bundles
   so ~/.vimrc.bundles
@@ -16,7 +15,6 @@ endif
 ""
 ""  Basic
 ""
-
 set nocompatible
 set relativenumber
 " set number
@@ -30,10 +28,10 @@ set incsearch
 
 " disable Press Enter
 set shortmess=a
+
 ""
 "" Whitespace
 ""
-
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -59,20 +57,14 @@ set listchars+=precedes:<         " The character to show in the last column whe
 au BufNewFile,BufRead *.md set filetype=markdown
 
 ""
-"" Powerline
+"" Airline
 ""
-
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-
-let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
-let g:Powerline_symbols= 'fancy'
-let g:Powerline_stl_path_style = 'short'
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
 
 ""
 "" Disable Arrow Keys
 ""
-
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -82,13 +74,12 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" set hlsearch
+""
+"" Searching
+""
 set hlsearch
 "clear search hilights
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-" ESC
-inoremap ii <Esc>
 
 ""
 "" GitGutter
@@ -105,6 +96,9 @@ highlight clear SignColumn
 let g:gist_post_private = 1
 let g:gist_open_browser_after_post = 1 " open gist after it's created
 
+""
+"" Pane splitting
+""
 "Open splits below and to the right
 set splitbelow
 set splitright
@@ -116,11 +110,11 @@ let g:vroom_use_vimux = 1
 "let g:vroom_use_spring = 1
 let g:vroom_use_binstubs = 1
 "let g:vroom_use_dispatch = 1
+
 ""
 "" NERDTree
 ""
 noremap <silent><Leader>n :NERDTreeToggle<CR>
-
 
 ""
 "" Syntastic
@@ -136,7 +130,6 @@ autocmd FileType gitcommit setlocal spell
 
 " Spell-check Markdown files
 autocmd FileType markdown setlocal spell
-
 
 ""
 "" Ctrl-P
