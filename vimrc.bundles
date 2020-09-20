@@ -16,17 +16,16 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'altercation/vim-colors-solarized'
 
-" Bundle 'SirVer/ultisnips'
-" Bundle 'honza/vim-snippets'
-" Bundle 'kien/ctrlp.vim'
-" Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Bundle 'junegunn/fzf.vim'
+
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'regedarek/ZoomWin'
-Bundle 'jeetsukumaran/vim-buffergator'
+" Bundle 'jeetsukumaran/vim-buffergator' replaced by fzf
 
-" Bundle 'scrooloose/syntastic'
-" Bundle 'ngmy/vim-rubocop'
+Bundle 'scrooloose/syntastic'
+Bundle 'ngmy/vim-rubocop'
 " Bundle 'godlygeek/tabular'
 
 " Git
@@ -39,8 +38,8 @@ Bundle 'tpope/vim-fugitive'
 " Bundle 'zxqfl/tabnine-vim'
 
 "For gist-vim
-" Bundle 'mattn/webapi-vim'
-" Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 Bundle 'skalnik/vim-vroom'
 "Bundle 'thoughtbot/vim-rspec'
@@ -50,12 +49,24 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'benmills/vimux.git'
 "Bundle 'jgdavey/tslime.vim'
 
+" Support for multiple languages
+Bundle 'sheerun/vim-polyglot'
+
+" Support for linting code
+Bundle 'dense-analysis/ale'
+
+
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 
 
-Bundle 'slim-template/vim-slim'
-" Bundle 'kchmck/vim-coffee-script'
+" Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
+
+" Laravel / Ember Development
+Bundle 'noahfrederick/vim-laravel'
+Bundle 'tpope/vim-projectionist'
+Bundle 'AndrewRadev/ember_tools.vim'
 
 Bundle 'christoomey/vim-tmux-navigator'
 

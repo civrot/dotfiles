@@ -17,6 +17,7 @@ endif
 ""
 set nocompatible
 set relativenumber
+set noswapfile
 " set number
 syntax enable
 set encoding=utf-8
@@ -132,9 +133,27 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal spell
 
 ""
-"" Ctrl-P
+"" ALE
 ""
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ale_fixers = {'javascript': ['eslint']}
+
+" Fix files automatically on save
+" let g:ale_fix_on_save = 1
+
+""
+"" fzf
+""
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <Leader>f :Rg<CR>
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+" let g:rg_derive_root='true'
+
+""
+"" NERD Tree
+""
+" let NERDTreeShowHidden=1
 
 "" Backup and swap files
 ""

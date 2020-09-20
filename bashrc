@@ -56,9 +56,15 @@ export PATH=$PATH:/usr/local/opt/postgresql@10/bin
 
 # ====================
 #      nvm
+# ===================
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm without use until manuall called
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # ====================
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# fzf ripgrep
+# ====================
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
 # ====================
 #      local bashrc
@@ -67,3 +73,5 @@ if [ -f ~/.dotfiles.local/bashrc ]
 then
     source ~/.dotfiles.local/bashrc
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
