@@ -1,3 +1,0 @@
-# vim To Dos
-- [ ] Why did I comment out syntastic?
-- [ ] Play with air-line configs somemore
