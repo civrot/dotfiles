@@ -1,8 +1,8 @@
-export EDITOR="vim -v"
+export EDITOR="nvim"
 source ~/.aliases
-# source /usr/local/etc/bash_completion
 
 set -o vi
+shopt -s autocd cdspell checkjobs direxpand dirspell nocaseglob nocasematch
 
 # ==================
 #     tmux

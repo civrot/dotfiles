@@ -1,7 +1,7 @@
+alias vi='nvim'
+alias vim='nvim'
+
 alias ls='ls -G'
-alias ..='cd ..'         # Go up one directory
-alias ...='cd ../..'     # Go up two directories
-alias ....='cd ../../..' # Go up two directories
 alias -- -='cd -'        # Go back
 
 eval "$(hub alias -s)"
