@@ -8,23 +8,26 @@
 	excludesfile = ~/.gitignore_global
 [github]
   user = civrot
-	token = 8a4539c3d3c1c215552f05bf5ef6cd4a5ffb26c0
 [help]
   autocorrect = 1
 [push]
   default = current
 [alias]
-  pr             = "!sh -c 'git fetch origin pull/$1/head:pr_$1 && git checkout pr_$1' -"
-  bam            = "!source ~/.githelpers && delete_local_merged_branches"
+  co             = "checkout"
+  dbm            = "!source ~/.githelpers && delete_local_merged_master_branches"
+  dbd            = "!source ~/.githelpers && delete_local_merged_develop_branches"
   bamr           = "!source ~/.githelpers && delete_remote_merged_branches"
   today          = "log --since=midnight --oneline --author='Victor Asteinza'"
   today-all      = "log --since=midnight --pretty=short"
   yesterday      = "log --since=yesterday.midnight --until=midnight --oneline --author='Victor Asteinza'"
   yesterday-all  = "log --since=yesterday.midnight --until=midnight --pretty=short"
   merges         = "log --merges --since=yesterday.midnight --oneline"
+  ctags          = !.git/hooks/ctags
 [pull]
-	ff = only
+  ff = only
 [filter "lfs"]
-	smudge = git-lfs smudge %f
-	required = true
-	clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+  clean = git-lfs clean %f
+[init]
+  templatedir = ~/.git_template

@@ -1,7 +1,11 @@
 #!/bin/bash
  
-function delete_local_merged_branches() {
+function delete_local_merged_master_branches() {
   git branch --merged master | grep -v master | xargs git branch -d
+}
+
+function delete_local_merged_develop_branches() {
+  git branch --merged develop | grep -v develop | xargs git branch -d
 }
  
 function delete_remote_merged_branches() {
