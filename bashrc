@@ -25,8 +25,7 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D"
 # ====================
 #      brew
 # ====================
-# source `brew --prefix`/etc/bash_completion.d/brew
-# source /usr/local/etc/bash_completion.d/brew
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 PATH=$HOME/bin:/usr/local/bin:$PATH:
 PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -50,21 +49,26 @@ export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/postgresql@10/bin
 
 # ====================
-#      awscli
-# ====================
-# complete -C aws_completer aws
-
-# ====================
 #      nvm
 # ===================
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm without use until manuall called
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ====================
 # fzf ripgrep
 # ====================
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# =================
+#      history
+# ================
+shopt -s histappend cmdhist
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoreboth:erasedups
+PROMPT_COMMAND='history -a'
 
 # ====================
 #      local bashrc
@@ -74,4 +78,3 @@ then
     source ~/.dotfiles.local/bashrc
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
