@@ -1,0 +1,52 @@
+set nocompatible
+filetype off
+
+call plug#begin('~/.vim/plugged')
+
+" Find things
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Appearance
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'scrooloose/nerdtree'
+Plug 'ddollar/nerdcommenter'
+" Plug 'regedarek/ZoomWin'
+
+Plug 'tpope/vim-projectionist'
+
+" " Git
+Plug 'airblade/vim-gitgutter'
+Plug 'idanarye/vim-merginal'
+  Plug 'tpope/vim-fugitive'
+
+" "Plug 'Valloric/YouCompleteMe'
+
+" "Plug 'tpope/vim-dispatch'
+" "Plug 'jgdavey/tslime.vim'
+
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'ngmy/vim-rubocop'
+Plug 'skalnik/vim-vroom'
+  Plug 'benmills/vimux'
+" Plug 'itmammoth/run-rspec.vim'
+
+
+Plug 'noahfrederick/vim-laravel'
+
+Plug 'AndrewRadev/ember_tools.vim'
+
+" Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'itspriddle/vim-marked'
+
+call plug#end()

@@ -2,14 +2,11 @@
 au BufWritePost .vimrc so ~/.vimrc
 
 ""
-"" Some of these borrowed from https://github.com/carlhuda/janus
-
+"" Plugins
 ""
-"" Vundle
-""
-if filereadable(expand("~/.vimrc.bundles"))
-  au BufWritePost .vimrc.bundles so ~/.vimrc.bundles
-  so ~/.vimrc.bundles
+if filereadable(expand("~/.vimrc.plugins"))
+  au BufWritePost .vimrc.plugins so ~/.vimrc.plugins
+  so ~/.vimrc.plugins
 endif
 
 ""
@@ -18,14 +15,15 @@ endif
 set nocompatible
 set relativenumber
 set noswapfile
-" set number
 syntax enable
 set encoding=utf-8
 set background=dark
-color solarized
 set colorcolumn=80
 set incsearch
 "set clipboard=unnamed " Now all operations work OS clipboard
+set laststatus=2
+
+color solarized
 
 " disable Press Enter
 set shortmess=a
@@ -62,6 +60,8 @@ au BufNewFile,BufRead *.md set filetype=markdown
 ""
 let g:airline_powerline_fonts=1
 let g:airline_theme='powerlineish'
+let g:airline#extensions#branch#displayed_head_limit = 12
+let g:airline#extensions#ale#enabled = 1
 
 ""
 "" Disable Arrow Keys
@@ -91,11 +91,12 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " clean signColumn for https://github.com/airblade/vim-gitgutter
 highlight clear SignColumn
 
+
 ""
-"" Gist
+"" Merginal
 ""
-let g:gist_post_private = 1
-let g:gist_open_browser_after_post = 1 " open gist after it's created
+let g:merginal_remoteVisible = 0 " don't show remote branchs
+let g:merginal_splitType = '' " horizontal split
 
 ""
 "" Pane splitting
@@ -108,20 +109,14 @@ set splitright
 "" VRoom
 ""
 let g:vroom_use_vimux = 1
-"let g:vroom_use_spring = 1
+" let g:vroom_use_dispatch = 1
+" let g:vroom_use_spring = 1
 let g:vroom_use_binstubs = 1
-"let g:vroom_use_dispatch = 1
 
 ""
 "" NERDTree
 ""
 noremap <silent><Leader>n :NERDTreeToggle<CR>
-
-""
-"" Syntastic
-""
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_scss_checkers = ['scss_lint']
 
 ""
 "" Spelling
@@ -135,8 +130,13 @@ autocmd FileType markdown setlocal spell
 ""
 "" ALE
 ""
-let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_hover_cursor = 1
 
+" let g:ale_fixers = {'javascript': ['eslint']}
+" let g:ale_completion_enabled = 1
 " Fix files automatically on save
 " let g:ale_fix_on_save = 1
 
@@ -144,18 +144,24 @@ let g:ale_fixers = {'javascript': ['eslint']}
 "" fzf
 ""
 nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <C-b> :Buffers<CR>
 nnoremap <Leader>h :History<CR>
-nnoremap <Leader>f :Rg<CR>
+nnoremap <C-f> :Rg<CR>
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 " let g:rg_derive_root='true'
 
 ""
-"" NERD Tree
+"" Ruby
 ""
-" let NERDTreeShowHidden=1
+" enable matchit to match ruby pairst
+runtime macros/matchit.vi
 
 "" Backup and swap files
 ""
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
+
+if has('nvim')
+  let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+  set nowb
+endif
