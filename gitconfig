@@ -1,13 +1,11 @@
-[user]
-	name = Victor Asteinza
-	email = civrot@users.noreply.github.com
+[include]
+  # For username / creds / etc
+  path = ~/.gitconfig.local
 [color]
 	ui = true
 [core]
 	editor = /usr/local/bin/nvim
 	excludesfile = ~/.gitignore_global
-[github]
-  user = civrot
 [help]
   autocorrect = 1
 [push]
