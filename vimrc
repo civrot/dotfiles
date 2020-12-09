@@ -17,13 +17,14 @@ set relativenumber
 set noswapfile
 syntax enable
 set encoding=utf-8
-set background=dark
-set colorcolumn=80
+set background=light
 set incsearch
 "set clipboard=unnamed " Now all operations work OS clipboard
 set laststatus=2
 
-color solarized
+set colorcolumn=80
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+" color solarized
 
 " disable Press Enter
 set shortmess=a
