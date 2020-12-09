@@ -59,9 +59,23 @@ au BufNewFile,BufRead *.md set filetype=markdown
 "" Airline
 ""
 let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
+let g:airline_theme='bubblegum'
 let g:airline#extensions#branch#displayed_head_limit = 12
 let g:airline#extensions#ale#enabled = 1
+
+"" ""
+"" TmuxLine
+"" ""
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_preset = ({
+        \ 'a': '#S',
+        \ 'win': '#I #W',
+        \ 'cwin': '#I #W',
+        \ 'z': ['%a', '%b %d', '%R'],
+        \ 'options': {
+        \'status-justify': 'centre'}
+        \})
 
 ""
 "" Disable Arrow Keys

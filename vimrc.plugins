@@ -8,11 +8,6 @@ Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Appearance
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
-
 Plug 'scrooloose/nerdtree'
 Plug 'ddollar/nerdcommenter'
 " Plug 'regedarek/ZoomWin'
@@ -48,5 +43,14 @@ Plug 'AndrewRadev/ember_tools.vim'
 " Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'itspriddle/vim-marked'
+
+" Appearance
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'edkolev/tmuxline.vim'
+
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
