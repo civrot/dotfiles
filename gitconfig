@@ -11,7 +11,7 @@
 [push]
   default = current
 [alias]
-  co             = "checkout"
+  co             = "!source ~/.githelpers && fzf_branch"
   dbm            = "!source ~/.githelpers && delete_local_merged_master_branches"
   dbd            = "!source ~/.githelpers && delete_local_merged_develop_branches"
   bamr           = "!source ~/.githelpers && delete_remote_merged_branches"

@@ -1,5 +1,5 @@
 #!/bin/bash
- 
+
 function delete_local_merged_master_branches() {
   git branch --merged master | grep -v master | xargs git branch -d
 }
@@ -7,7 +7,7 @@ function delete_local_merged_master_branches() {
 function delete_local_merged_develop_branches() {
   git branch --merged develop | grep -v develop | xargs git branch -d
 }
- 
+
 function delete_remote_merged_branches() {
   for BRANCH in `git branch -r --merged origin/master |\
                  grep -v master |\
@@ -15,4 +15,8 @@ function delete_remote_merged_branches() {
   do
     git push origin :$BRANCH
   done
+}
+
+function fzf_branch() {
+  git branch | fzf | xargs git checkout
 }
