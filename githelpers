@@ -18,5 +18,5 @@ function delete_remote_merged_branches() {
 }
 
 function fzf_branch() {
-  git branch | fzf | xargs git checkout
+  git branch | fzf --tac | xargs git checkout
 }

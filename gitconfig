@@ -11,16 +11,16 @@
 [push]
   default = current
 [alias]
-  co             = "!source ~/.githelpers && fzf_branch"
+  co             = "checkout"
+  cf             = "!source ~/.githelpers && fzf_branch"
+
   dbm            = "!source ~/.githelpers && delete_local_merged_master_branches"
   dbd            = "!source ~/.githelpers && delete_local_merged_develop_branches"
   bamr           = "!source ~/.githelpers && delete_remote_merged_branches"
-  today          = "log --since=midnight --oneline --author='Victor Asteinza'"
-  today-all      = "log --since=midnight --pretty=short"
-  yesterday      = "log --since=yesterday.midnight --until=midnight --oneline --author='Victor Asteinza'"
-  yesterday-all  = "log --since=yesterday.midnight --until=midnight --pretty=short"
-  merges         = "log --merges --since=yesterday.midnight --oneline"
+
   ctags          = !.git/hooks/ctags
+
+  rn             = "log --no-merges  --no-decorate --topo-order --reverse --format='* %s' origin/master..origin/develop"
 [pull]
   ff = only
 [filter "lfs"]
