@@ -1,6 +1,6 @@
-[include]
-  # For username / creds / etc
-  path = ~/.gitconfig.local
+[user]
+	name = Victor Asteinza
+	email = vic+github@civrot.org
 [color]
 	ui = true
 [core]
@@ -24,8 +24,13 @@
 [pull]
   ff = only
 [filter "lfs"]
-  smudge = git-lfs smudge %f
+	smudge = git-lfs smudge -- %f
   required = true
-  clean = git-lfs clean %f
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
 [init]
   templatedir = ~/.git_template
+	defaultBranch = main
+[include]
+  # For username / creds / etc
+  path = ~/.gitconfig.local
