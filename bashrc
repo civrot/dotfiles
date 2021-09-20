@@ -37,6 +37,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export CONFIGURE_OPTS="--with-readline-dir=/usr/local/opt/readline --with-gcc=clang --with-openssl-dir=/usr/local/opt/openssl"
 # Following line is commented out, because the brew look up was slowing down bash startup
 # export CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-gcc=clang --with-openssl-dir=`brew --prefix openssl`"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # ====================
 #      heroku
