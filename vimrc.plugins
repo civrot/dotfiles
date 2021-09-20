@@ -19,12 +19,16 @@ Plug 'godlygeek/tabular'
 
 " " Git
 Plug 'airblade/vim-gitgutter'
-Plug 'idanarye/vim-merginal'
+" Plug 'idanarye/vim-merginal'
+Plug 'sodapopcan/vim-twiggy'
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-fugitive'
 
 " "Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips/'
+Plug 'honza/vim-snippets'
 
-Plug 'tpope/vim-dispatch'
 " "Plug 'jgdavey/tslime.vim'
 
 Plug 'sheerun/vim-polyglot'
@@ -34,14 +38,21 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'ngmy/vim-rubocop'
+
 Plug 'skalnik/vim-vroom'
   Plug 'benmills/vimux'
-" Plug 'itmammoth/run-rspec.vim'
 
+" Plug 'gabebw/vim-spec-runner'
+" Plug 'thoughtbot/vim-rspec'
+" Plug 'tpope/vim-dispatch'
 
-Plug 'noahfrederick/vim-laravel'
+Plug 'tpope/vim-unimpaired'
 
-Plug 'AndrewRadev/ember_tools.vim'
+Plug 'rizzatti/dash.vim'
+
+" Plug 'noahfrederick/vim-laravel'
+
+" Plug 'AndrewRadev/ember_tools.vim'
 
 " Plug 'christoomey/vim-tmux-navigator'
 
@@ -55,5 +66,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'edkolev/tmuxline.vim'
 
 Plug 'ryanoasis/vim-devicons'
+" Plug 'Yggdroot/indentLine'
+
+" Plug 'vimwiki/vimwiki'
 
 call plug#end()

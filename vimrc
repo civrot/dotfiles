@@ -27,7 +27,7 @@ hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 " color solarized
 
 " disable Press Enter
-set shortmess=a
+set shortmess=at
 
 ""
 "" Whitespace
@@ -55,6 +55,13 @@ set listchars+=precedes:<         " The character to show in the last column whe
 "" File Extensions
 ""
 au BufNewFile,BufRead *.md set filetype=markdown
+
+""
+"" IndentLine
+""
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 233
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 ""
 "" Airline
@@ -117,8 +124,8 @@ let g:merginal_splitType = '' " horizontal split
 "" Pane splitting
 ""
 "Open splits below and to the right
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 
 ""
 "" VRoom
@@ -147,9 +154,11 @@ autocmd FileType markdown setlocal spell
 ""
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%severity%] %linter%::%code%  %s'
 let g:ale_hover_cursor = 1
-
+let g:ale_pattern_options = {'Gemfile.lock': {'ale_enabled': 0}}
+let g:ale_lint_delay = 400
+" let g:ale_lint_on_text_changed = 'never'
 " let g:ale_fixers = {'javascript': ['eslint']}
 " let g:ale_completion_enabled = 1
 " Fix files automatically on save
@@ -159,22 +168,62 @@ let g:ale_hover_cursor = 1
 "" fzf
 ""
 nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
-nnoremap <C-f> :Rg<CR>
+nnoremap <Leader>f :Rg<CR>
+nnoremap <Leader>g :GFiles?<CR>
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 " let g:rg_derive_root='true'
+
+" https://github.com/junegunn/fzf.vim/pull/733#issuecomment-559720813
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+
+
+""
+"" Snippets
+""
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 ""
 "" Ruby
 ""
-" enable matchit to match ruby pairst
+" enable matchit to match ruby pairs
 runtime macros/matchit.vi
 
+""
+"" Rspc
+""
+let g:rspec_command = "Dispatch bin/rspec {spec}"
+
+""
 "" Backup and swap files
 ""
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
+
+""
+"" Misc
+""
+" execute current file
+nnoremap <leader>e :!%:p<CR>
 
 if has('nvim')
   let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
