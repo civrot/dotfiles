@@ -4,9 +4,12 @@ alias vim='nvim'
 alias ls='ls -G'
 alias -- -='cd -'        # Go back
 
-eval "$(hub alias -s)"
-
 alias node='node --use_strict'
+
+# git
+alias co='git cf'
+alias develop='git checkout develop'
+alias master='git checkout master'
 
 if [ -f ~/.dotfiles.local/aliases ]
 then
