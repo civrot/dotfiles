@@ -58,6 +58,9 @@ Plug 'rizzatti/dash.vim'
 
 Plug 'itspriddle/vim-marked'
 
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+
 " Appearance
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

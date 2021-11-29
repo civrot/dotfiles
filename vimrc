@@ -72,9 +72,9 @@ let g:airline_theme='bubblegum'
 let g:airline#extensions#branch#displayed_head_limit = 12
 let g:airline#extensions#ale#enabled = 1
 
-"" ""
+""
 "" TmuxLine
-"" ""
+" 
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_preset = ({
         \ 'a': '#S',
@@ -113,12 +113,6 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " clean signColumn for https://github.com/airblade/vim-gitgutter
 highlight clear SignColumn
 
-
-""
-"" Merginal
-""
-let g:merginal_remoteVisible = 0 " don't show remote branchs
-let g:merginal_splitType = '' " horizontal split
 
 ""
 "" Pane splitting
@@ -194,6 +188,17 @@ command! BD call fzf#run(fzf#wrap({
 \ }))
 
 
+""
+"" Gutentags
+""
+" enable gtags module
+" let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" change focus to quickfix window after search (optional).
+" let g:gutentags_plus_switch = 1
 
 ""
 "" Snippets
@@ -226,6 +231,6 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 nnoremap <leader>e :!%:p<CR>
 
 if has('nvim')
-  let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+  let g:python3_host_prog = '/usr/local/bin/python3'
   set nowb
 endif
