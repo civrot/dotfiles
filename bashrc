@@ -71,6 +71,14 @@ export HISTFILESIZE=10000
 export HISTCONTROL=ignoreboth:erasedups
 PROMPT_COMMAND='history -a'
 
+
+# ===================
+#   bash completion
+# ===================
+for bcfile in /usr/local/etc/bash_completion.d/* ; do
+  [ -f "$bcfile" ] && . $bcfile
+done
+
 # ====================
 #      local bashrc
 # ====================
