@@ -14,8 +14,9 @@
   co             = "checkout"
   cf             = "!source ~/.githelpers && fzf_branch"
 
-  dbm            = "!source ~/.githelpers && delete_local_merged_master_branches"
-  dbd            = "!source ~/.githelpers && delete_local_merged_develop_branches"
+  dbm            = "!source ~/.githelpers && delete_local_merged_branches master"
+  dbd            = "!source ~/.githelpers && delete_local_merged_branches develop"
+  dbs            = "!source ~/.githelpers && delete_local_merged_branches staging"
   bamr           = "!source ~/.githelpers && delete_remote_merged_branches"
 
   ctags          = !.git/hooks/ctags
