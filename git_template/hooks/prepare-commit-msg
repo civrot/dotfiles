@@ -1,0 +1,14 @@
+#!/bin/sh
+
+file=$1
+commit_msg=$(cat $file)
+
+story_id=$(git rev-parse --abbrev-ref HEAD | grep -Eo 'ch\d+')
+
+# If there is no story id  found or the commit message already begins with the
+# story id then stop
+if [[ $commit_msg == "fixup!"* || $commit_msg == "amend!" || $story_id == "" || $commit_msg == "[$story_id]"* ]]; then
+  exit 0
+fi
+
+echo "[$story_id] $commit_msg" > $file
