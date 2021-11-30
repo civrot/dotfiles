@@ -3,7 +3,7 @@
 file=$1
 commit_msg=$(cat $file)
 
-story_id=$(git rev-parse --abbrev-ref HEAD | grep -Eo 'ch\d+')
+story_id=$(git rev-parse --abbrev-ref HEAD | grep -Eo '/*\w+-*\d+/' | sed -e 's/\///g')
 
 # If there is no story id  found or the commit message already begins with the
 # story id then stop
