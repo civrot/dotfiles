@@ -71,6 +71,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'Yggdroot/indentLine'
 
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
+Plug 'michal-h21/vimwiki-sync'
 
 call plug#end()

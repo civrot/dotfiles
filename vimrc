@@ -234,3 +234,12 @@ if has('nvim')
   let g:python3_host_prog = '/usr/local/bin/python3'
   set nowb
 endif
+
+
+""
+"" Local config
+""
+if filereadable(expand("~/.dotfiles.local/vimrc"))
+  au BufWritePost .dotfiles.local/vimrc so ~/.dotfiles.local/vimrc
+  so ~/.dotfiles.local/vimrc
+endif
