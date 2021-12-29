@@ -73,5 +73,6 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'vimwiki/vimwiki'
 Plug 'michal-h21/vimwiki-sync'
+Plug 'mattn/calendar-vim'
 
 call plug#end()
