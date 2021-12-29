@@ -219,6 +219,12 @@ runtime macros/matchit.vi
 let g:rspec_command = "Dispatch bin/rspec {spec}"
 
 ""
+"" Vim Wiki FZF
+""
+command! -bang VimwikiFzf call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>." ~/vimwikis"), 1, fzf#vim#with_preview(), <bang>0)
+nmap <Leader>wp :VimwikiFzf<CR>
+
+""
 "" Backup and swap files
 ""
 set backupdir^=~/.vim/_backup//    " where to put backup files.
@@ -234,7 +240,6 @@ if has('nvim')
   let g:python3_host_prog = '/usr/local/bin/python3'
   set nowb
 endif
-
 
 ""
 "" Local config
