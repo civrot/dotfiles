@@ -13,7 +13,7 @@ endif
 ""  Basic
 ""
 set nocompatible
-set relativenumber
+set number relativenumber
 set noswapfile
 syntax enable
 set encoding=utf-8
