@@ -205,7 +205,8 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 ""
 "" Snippets
 ""
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsListSnippets="<c-b>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
