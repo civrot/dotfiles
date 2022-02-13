@@ -22,6 +22,8 @@ set incsearch
 "set clipboard=unnamed " Now all operations work OS clipboard
 set laststatus=2
 
+:let mapleader=","
+
 set colorcolumn=80
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 " color solarized
