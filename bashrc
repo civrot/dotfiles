@@ -1,6 +1,9 @@
 export EDITOR="nvim"
 source ~/.aliases
 
+# Prepend my bins in PATH
+PATH=$HOME/bin:$PATH
+
 set -o vi
 shopt -s autocd cdspell checkjobs direxpand dirspell nocaseglob nocasematch
 
@@ -26,8 +29,6 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D"
 #      brew
 # ====================
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-PATH=$HOME/bin:/usr/local/bin:$PATH:
-PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # =====================
 #    RBENV
@@ -40,20 +41,10 @@ export CONFIGURE_OPTS="--with-readline-dir=/usr/local/opt/readline --with-gcc=cl
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # ====================
-#      heroku
-# ====================
-export PATH="~/.bin:/usr/local/heroku/bin:$PATH"
-
-# ====================
-#      pg
-# ====================
-export PATH=$PATH:/usr/local/opt/postgresql@10/bin
-
-# ====================
 #      nvm
 # ===================
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm without use until manuall called
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # --no-use # This loads nvm without use until manuall called
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ====================
