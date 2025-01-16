@@ -1,5 +1,9 @@
 " automatically reload vimrc when it's saved
+"
 au BufWritePost .vimrc so ~/.vimrc
+
+"" Prepend mise shims to PATH
+let $PATH = $HOME . '~/.local/share/mise/shims:' . $PATH
 
 ""
 "" Plugins
@@ -24,9 +28,18 @@ set laststatus=2
 
 :let mapleader=","
 
+""
+"" Colors
+""
 set colorcolumn=80
+color Tomorrow-Night
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
-" color solarized
+" Custom adjustments for color schemes.
+" Run below to see how highlight colors are defined
+"   :so $VIMRUNTIME/syntax/hitest.vim
+" link Statement to match Define, i.e. keywords in rspecs
+hi! link Statement Define 
+hi Normal ctermbg=NONE guibg=NONE " remove the background
 
 " disable Press Enter
 set shortmess=at
@@ -130,6 +143,7 @@ let g:vroom_use_vimux = 1
 " let g:vroom_use_dispatch = 1
 " let g:vroom_use_spring = 1
 let g:vroom_use_binstubs = 1
+" let g:vroom_command_prefix='docker compose exec api'
 
 ""
 "" NERDTree
@@ -154,6 +168,8 @@ let g:ale_echo_msg_format = '[%severity%] %linter%::%code%  %s'
 let g:ale_hover_cursor = 1
 let g:ale_pattern_options = {'Gemfile.lock': {'ale_enabled': 0}}
 let g:ale_lint_delay = 400
+let g:ale_fixers = { 'ruby': [ 'rubocop', ], }
+
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ale_fixers = {'javascript': ['eslint']}
 " let g:ale_completion_enabled = 1
@@ -211,6 +227,9 @@ let g:UltiSnipsListSnippets="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 ""
+"" Auto Pairs
+let g:AutoPairsFlyMode = 1
+
 "" Ruby
 ""
 " enable matchit to match ruby pairs
@@ -240,9 +259,13 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 nnoremap <leader>e :!%:p<CR>
 
 if has('nvim')
-  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:perl_host_prog = '/Users/victor/.local/share/mise/installs/perl/latest/bin/perl'
+  " let g:python3_host_prog = '~/.local/share/mise/installs/python/latest/bin/python3'
+  let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.12/bin/python3'
+  " let g:python3_host_prog = '~/.asdf/shims/python3'
   set nowb
 endif
+
 
 ""
 "" Local config

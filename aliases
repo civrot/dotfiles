@@ -2,10 +2,10 @@ alias vi='nvim'
 alias vim='nvim'
 
 # alias ls='ls -G'
-alias exa='exa --color-scale --git --icons -F'
-alias ls='exa -G'
-alias ll='exa -l'
-alias lt='exa -T'
+alias eza='eza --color-scale --git --icons -F'
+alias ls='eza'
+alias ll='eza -l'
+alias lt='eza -T'
 alias -- -='cd -'        # Go back
 
 alias node='node --use_strict'

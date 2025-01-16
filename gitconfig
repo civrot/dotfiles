@@ -22,6 +22,8 @@
   ctags          = !.git/hooks/ctags
 
   rn             = "log --no-merges  --no-decorate --topo-order --reverse --format='* %s' origin/master..origin/develop"
+
+  l1             = "log --oneline --decorate --all --graph"
 [pull]
   ff = only
 [filter "lfs"]

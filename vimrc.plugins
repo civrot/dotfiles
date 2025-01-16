@@ -19,6 +19,10 @@ Plug 'tpope/vim-projectionist'
 
 Plug 'godlygeek/tabular'
 
+Plug 'preservim/vim-pencil'
+
+" Plug 'jiangmiao/auto-pairs'
+
 " " Git
 Plug 'airblade/vim-gitgutter'
 " Plug 'idanarye/vim-merginal'
@@ -27,7 +31,7 @@ Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-fugitive'
 
-" "Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'SirVer/ultisnips/'
 Plug 'honza/vim-snippets'
 
@@ -37,6 +41,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 
 Plug 'tpope/vim-endwise'
+
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'ngmy/vim-rubocop'
@@ -58,16 +65,24 @@ Plug 'rizzatti/dash.vim'
 
 " Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'bfrg/vim-jq'
+
 Plug 'itspriddle/vim-marked'
 
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 
+Plug 'elixir-editors/vim-elixir'
+
 " Appearance
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'itchyny/lightline.vim'
-Plug 'altercation/vim-colors-solarized'
+
+" Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
+Plug 'zaldih/themery.nvim'
+
 Plug 'edkolev/tmuxline.vim'
 
 Plug 'ryanoasis/vim-devicons'
